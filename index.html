@@ -1605,14 +1605,35 @@ function send() {
     input.value = "";
 
 
-    setTimeout(() => {
+    fetch("https://rapid-poetry-6a90domai-backend.emmaprogram250.workers.dev/", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        message: q
+    })
+})
+.then(response => response.json())
+.then(data => {
 
-        add(
-            answer(q),
-            "bot"
-        );
+    const respuesta =
+        data.choices?.[0]?.message?.content ||
+        data.error ||
+        "No recibí una respuesta válida de DomAI.";
 
-    }, 350);
+    add(respuesta, "bot");
+
+})
+.catch(error => {
+
+    add(
+        "Error al conectar con DomAI: " + error.message,
+        "bot"
+    );
+
+});
+
 
 }
 
