@@ -1605,7 +1605,8 @@ function send() {
     input.value = "";
 
 
-    fetch("https://rapid-poetry-6a90domai-backend.emmaprogram250.workers.dev/", {
+```javascript
+fetch("https://rapid-poetry-6a90domai-backend.emmaprogram250.workers.dev/", {
     method: "POST",
     headers: {
         "Content-Type": "application/json"
@@ -1614,7 +1615,24 @@ function send() {
         message: q
     })
 })
-.then(response => response.json())
+.then(async response => {
+
+    const data = await response.json();
+
+    console.log("Worker status:", response.status);
+    console.log("Worker response:", data);
+
+    if (!response.ok) {
+        throw new Error(
+            data.details?.error?.message ||
+            data.error ||
+            "Error del servidor"
+        );
+    }
+
+    return data;
+
+})
 .then(data => {
 
     const respuesta =
@@ -1627,18 +1645,12 @@ function send() {
 })
 .catch(error => {
 
+    console.error("DomAI error:", error);
+
     add(
         "Error al conectar con DomAI: " + error.message,
         "bot"
     );
 
 });
-
-
-}
-
-</script>
-
-
-</body>
-</html>
+```
