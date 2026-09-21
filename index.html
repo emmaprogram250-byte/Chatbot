@@ -1158,8 +1158,7 @@ mucho más abiertas y complejas.`;
 
 function send() {
 
-    const q =
-    input.value.trim();
+    const q = input.value.trim();
 
     if (!q)
         return;
@@ -1168,13 +1167,19 @@ function send() {
 
     input.value = "";
 
+    conversation.push({
+        role: "user",
+        content: q
+    });
+
     fetch("https://rapid-poetry-6a90domai-backend.emmaprogram250.workers.dev/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            message: q
+            message: q,
+            conversation: conversation
         })
     })
     .then(async response => {
@@ -1204,6 +1209,11 @@ function send() {
 
         add(respuesta, "bot");
 
+        conversation.push({
+            role: "assistant",
+            content: respuesta
+        });
+
     })
     .catch(error => {
 
@@ -1217,7 +1227,6 @@ function send() {
     });
 
 }
-
 </script>
 
 </body>
