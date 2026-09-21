@@ -234,7 +234,6 @@ main {
     margin: 10px 0;
     border-radius: 15px;
     line-height: 1.55;
-    white-space: pre-wrap;
     font-size: 14px;
 }
 
@@ -246,6 +245,104 @@ main {
 .user {
     background: var(--rojo);
     margin-left: auto;
+    white-space: pre-wrap;
+}
+
+/* =========================================================
+   TABLAS CONVERTIDAS EN CUADROS
+   ========================================================= */
+
+.ai-content {
+    width: 100%;
+}
+
+.ai-text {
+    white-space: pre-wrap;
+    margin: 0 0 10px;
+}
+
+.ai-table {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 12px;
+
+    margin: 16px 0 18px;
+}
+
+.ai-table-card {
+    background: rgba(0, 26, 58, 0.75);
+    border: 1px solid rgba(214, 224, 236, 0.18);
+    border-left: 3px solid var(--rojo);
+
+    border-radius: 13px;
+
+    padding: 16px;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.ai-table-card:hover {
+    transform: translateY(-2px);
+    background: var(--azul-oscuro);
+    border-color: var(--rojo);
+}
+
+.ai-table-title {
+    font-size: 13px;
+    font-weight: 900;
+
+    color: var(--texto);
+
+    margin-bottom: 8px;
+}
+
+.ai-table-label {
+    display: block;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    color: var(--rojo);
+
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+
+    margin-bottom: 4px;
+}
+
+.ai-table-value {
+    color: var(--texto-secundario);
+
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+/* Tablas con muchas columnas */
+
+.ai-table-wide {
+    grid-template-columns:
+        repeat(auto-fit, minmax(190px, 1fr));
+}
+
+/* =========================================================
+   TEXTO DESTACADO DE LA IA
+   ========================================================= */
+
+.ai-bold {
+    font-weight: 800;
+    color: var(--texto);
+}
+
+.ai-heading {
+    font-weight: 900;
+    font-size: 16px;
+    margin: 12px 0 8px;
+    color: var(--texto);
 }
 
 .input {
@@ -346,6 +443,15 @@ footer {
     .input button {
         padding: 12px;
     }
+
+    .msg {
+        max-width: 94%;
+    }
+
+    .ai-table {
+        grid-template-columns: 1fr;
+    }
+
 }
 
 </style>
@@ -800,24 +906,328 @@ let conversation = [];
 
 
 /* =========================================================
+   ESCAPAR TEXTO
+   ========================================================= */
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent =
+        text;
+
+    return div.innerHTML;
+}
+
+
+/* =========================================================
+   FORMATEAR TEXTO SIMPLE
+   ========================================================= */
+
+function formatInline(text) {
+
+    let safe =
+        escapeHTML(text);
+
+    safe =
+        safe.replace(
+            /\*\*(.*?)\*\*/g,
+            '<span class="ai-bold">$1</span>'
+        );
+
+    return safe;
+}
+
+
+/* =========================================================
+   DETECTAR TABLAS MARKDOWN
+   ========================================================= */
+
+function isTableSeparator(line) {
+
+    return /^\s*\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)+\|?\s*$/.test(line);
+}
+
+
+function parseTableRow(line) {
+
+    let clean =
+        line.trim();
+
+    if (clean.startsWith("|")) {
+        clean = clean.substring(1);
+    }
+
+    if (clean.endsWith("|")) {
+        clean = clean.substring(0, clean.length - 1);
+    }
+
+    return clean
+        .split("|")
+        .map(cell => cell.trim());
+}
+
+
+/* =========================================================
+   CREAR CUADRO VISUAL
+   ========================================================= */
+
+function createVisualTable(headers, rows) {
+
+    const table =
+        document.createElement("div");
+
+    table.className =
+        "ai-table";
+
+    if (headers.length > 2) {
+        table.classList.add("ai-table-wide");
+    }
+
+
+    rows.forEach(row => {
+
+        if (!row.length) {
+            return;
+        }
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "ai-table-card";
+
+
+        /*
+         * Primera columna:
+         * título principal del cuadro
+         */
+
+        const title =
+            document.createElement("div");
+
+        title.className =
+            "ai-table-title";
+
+        title.innerHTML =
+            formatInline(row[0] || "");
+
+        card.appendChild(title);
+
+
+        /*
+         * Columnas restantes:
+         * información del cuadro
+         */
+
+        for (
+            let i = 1;
+            i < row.length;
+            i++
+        ) {
+
+            const label =
+                document.createElement("span");
+
+            label.className =
+                "ai-table-label";
+
+            label.textContent =
+                headers[i] || "Información";
+
+            card.appendChild(label);
+
+
+            const value =
+                document.createElement("div");
+
+            value.className =
+                "ai-table-value";
+
+            value.innerHTML =
+                formatInline(row[i] || "");
+
+            card.appendChild(value);
+        }
+
+
+        table.appendChild(card);
+
+    });
+
+
+    return table;
+}
+
+
+/* =========================================================
+   RENDERIZAR RESPUESTA DE DOMAI
+   ========================================================= */
+
+function renderAIResponse(text) {
+
+    const container =
+        document.createElement("div");
+
+    container.className =
+        "ai-content";
+
+
+    const lines =
+        text.split("\n");
+
+    let textBuffer = [];
+
+
+    function flushText() {
+
+        if (!textBuffer.length) {
+            return;
+        }
+
+        const content =
+            textBuffer.join("\n").trim();
+
+        if (content) {
+
+            const paragraph =
+                document.createElement("div");
+
+            paragraph.className =
+                "ai-text";
+
+            paragraph.innerHTML =
+                formatInline(content);
+
+            container.appendChild(
+                paragraph
+            );
+        }
+
+        textBuffer = [];
+    }
+
+
+    let i = 0;
+
+    while (i < lines.length) {
+
+        const current =
+            lines[i];
+
+        const next =
+            lines[i + 1];
+
+
+        /*
+         * Detectamos:
+         *
+         * | Header | Header |
+         * |--------|--------|
+         */
+
+        if (
+            current.includes("|") &&
+            next &&
+            isTableSeparator(next)
+        ) {
+
+            flushText();
+
+
+            const headers =
+                parseTableRow(current);
+
+            const rows = [];
+
+            i += 2;
+
+
+            while (
+                i < lines.length &&
+                lines[i].includes("|") &&
+                lines[i].trim() !== ""
+            ) {
+
+                const row =
+                    parseTableRow(lines[i]);
+
+                if (row.length > 0) {
+                    rows.push(row);
+                }
+
+                i++;
+            }
+
+
+            if (rows.length > 0) {
+
+                const visualTable =
+                    createVisualTable(
+                        headers,
+                        rows
+                    );
+
+                container.appendChild(
+                    visualTable
+                );
+
+            }
+
+            continue;
+        }
+
+
+        textBuffer.push(current);
+
+        i++;
+    }
+
+
+    flushText();
+
+
+    return container;
+}
+
+
+/* =========================================================
    MOSTRAR MENSAJE
    ========================================================= */
 
 function add(text, who) {
 
     const d =
-    document.createElement("div");
+        document.createElement("div");
 
     d.className =
-    "msg " + who;
+        "msg " + who;
 
-    d.textContent =
-    text;
+
+    /*
+     * Las respuestas de DomAI
+     * se renderizan con el nuevo
+     * sistema visual.
+     */
+
+    if (who === "bot") {
+
+        d.appendChild(
+            renderAIResponse(text)
+        );
+
+    } else {
+
+        d.textContent =
+            text;
+    }
+
 
     messages.appendChild(d);
 
     messages.scrollTop =
-    messages.scrollHeight;
+        messages.scrollHeight;
 }
 
 
@@ -827,7 +1237,8 @@ function add(text, who) {
 
 function quick(text) {
 
-    input.value = text;
+    input.value =
+        text;
 
     send();
 }
@@ -848,34 +1259,41 @@ function extractResponse(data) {
 
     if (Array.isArray(content)) {
 
-        const textParts = content
-            .map(part => {
+        const textParts =
+            content
+                .map(part => {
 
-                if (typeof part === "string") {
-                    return part;
-                }
+                    if (
+                        typeof part === "string"
+                    ) {
+                        return part;
+                    }
 
-                if (
-                    part &&
-                    typeof part.text === "string"
-                ) {
-                    return part.text;
-                }
+                    if (
+                        part &&
+                        typeof part.text === "string"
+                    ) {
+                        return part.text;
+                    }
 
-                if (
-                    part &&
-                    typeof part.content === "string"
-                ) {
-                    return part.content;
-                }
+                    if (
+                        part &&
+                        typeof part.content === "string"
+                    ) {
+                        return part.content;
+                    }
 
-                return "";
+                    return "";
 
-            })
-            .filter(Boolean);
+                })
+                .filter(Boolean);
+
 
         if (textParts.length > 0) {
-            return textParts.join("\n").trim();
+
+            return textParts
+                .join("\n")
+                .trim();
         }
     }
 
@@ -896,14 +1314,21 @@ function send() {
         return;
     }
 
-    add(q, "user");
+
+    add(
+        q,
+        "user"
+    );
+
 
     input.value = "";
+
 
     conversation.push({
         role: "user",
         content: q
     });
+
 
     fetch(
         "https://rapid-poetry-6a90domai-backend.emmaprogram250.workers.dev/",
@@ -926,15 +1351,18 @@ function send() {
         const data =
             await response.json();
 
+
         console.log(
             "Worker status:",
             response.status
         );
 
+
         console.log(
             "Worker response:",
             data
         );
+
 
         if (!response.ok) {
 
@@ -945,14 +1373,17 @@ function send() {
             );
         }
 
+
         return data;
 
     })
+
 
     .then(data => {
 
         const respuesta =
             extractResponse(data);
+
 
         if (!respuesta) {
 
@@ -961,15 +1392,18 @@ function send() {
                 data
             );
 
+
             throw new Error(
                 "DomAI no devolvió una respuesta de texto."
             );
         }
 
+
         add(
             respuesta,
             "bot"
         );
+
 
         conversation.push({
             role: "assistant",
@@ -978,12 +1412,14 @@ function send() {
 
     })
 
+
     .catch(error => {
 
         console.error(
             "DomAI error:",
             error
         );
+
 
         add(
             "Error al conectar con DomAI: " +
