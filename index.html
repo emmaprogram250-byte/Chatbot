@@ -16,10 +16,6 @@ content="DomAI — asistente educativo especializado en Ciencias Sociales, histo
 
 <style>
 
-/* =========================================================
-   VARIABLES
-   ========================================================= */
-
 :root {
 
     --azul: #002D62;
@@ -36,15 +32,9 @@ content="DomAI — asistente educativo especializado en Ciencias Sociales, histo
 
 }
 
-
-/* =========================================================
-   GENERAL
-   ========================================================= */
-
 * {
     box-sizing: border-box;
 }
-
 
 body {
 
@@ -65,11 +55,6 @@ body {
     color: var(--texto);
 
 }
-
-
-/* =========================================================
-   HEADER
-   ========================================================= */
 
 header {
 
@@ -93,7 +78,6 @@ header {
 
 }
 
-
 .logo {
 
     font-size: 30px;
@@ -103,7 +87,6 @@ header {
     letter-spacing: -1px;
 
 }
-
 
 .tag {
 
@@ -115,7 +98,6 @@ header {
         var(--texto-secundario);
 
 }
-
 
 .header-quote {
 
@@ -129,11 +111,6 @@ header {
     max-width: 330px;
 
 }
-
-
-/* =========================================================
-   MAIN
-   ========================================================= */
 
 main {
 
@@ -153,7 +130,6 @@ main {
         column;
 
 }
-
 
 .hero {
     order: 1;
@@ -175,11 +151,6 @@ main {
     order: 5;
 }
 
-
-/* =========================================================
-   HERO
-   ========================================================= */
-
 .hero {
 
     padding: 42px;
@@ -197,7 +168,6 @@ main {
     overflow: hidden;
 
 }
-
 
 .hero::after {
 
@@ -222,7 +192,6 @@ main {
 
 }
 
-
 .kicker {
 
     color:
@@ -238,7 +207,6 @@ main {
         uppercase;
 
 }
-
 
 .hero h1 {
 
@@ -256,7 +224,6 @@ main {
 
 }
 
-
 .hero p {
 
     max-width: 850px;
@@ -270,11 +237,6 @@ main {
 
 }
 
-
-/* =========================================================
-   ÁREAS
-   ========================================================= */
-
 .section-title {
 
     margin:
@@ -285,7 +247,6 @@ main {
     font-weight: 800;
 
 }
-
 
 .grid {
 
@@ -300,7 +261,6 @@ main {
     gap: 14px;
 
 }
-
 
 .card {
 
@@ -325,7 +285,6 @@ main {
 
 }
 
-
 .card:hover {
 
     transform:
@@ -338,7 +297,6 @@ main {
         var(--rojo);
 
 }
-
 
 .card-number {
 
@@ -353,7 +311,6 @@ main {
 
 }
 
-
 .card h3 {
 
     margin:
@@ -362,7 +319,6 @@ main {
     font-size: 17px;
 
 }
-
 
 .card p {
 
@@ -376,11 +332,6 @@ main {
     line-height: 1.5;
 
 }
-
-
-/* =========================================================
-   CHAT
-   ========================================================= */
 
 .chat {
 
@@ -397,7 +348,6 @@ main {
     overflow: hidden;
 
 }
-
 
 .chat-head {
 
@@ -419,7 +369,6 @@ main {
 
 }
 
-
 .chat-title {
 
     font-weight: 900;
@@ -427,7 +376,6 @@ main {
     font-size: 17px;
 
 }
-
 
 .chat-status {
 
@@ -437,11 +385,6 @@ main {
         var(--texto-secundario);
 
 }
-
-
-/* =========================================================
-   MENSAJES
-   ========================================================= */
 
 .messages {
 
@@ -454,7 +397,6 @@ main {
     scroll-behavior: smooth;
 
 }
-
 
 .msg {
 
@@ -474,7 +416,6 @@ main {
 
 }
 
-
 .bot {
 
     background:
@@ -492,7 +433,6 @@ main {
 
 }
 
-
 .user {
 
     background:
@@ -509,11 +449,6 @@ main {
 
 }
 
-
-/* =========================================================
-   CONTENIDO DE LA IA
-   ========================================================= */
-
 .ai-content {
 
     width: 100%;
@@ -521,11 +456,6 @@ main {
     line-height: 1.7;
 
 }
-
-
-/* =========================================================
-   PÁRRAFOS
-   ========================================================= */
 
 .ai-paragraph {
 
@@ -540,18 +470,12 @@ main {
 
 }
 
-
 .ai-paragraph:last-child {
 
     margin-bottom:
         0;
 
 }
-
-
-/* =========================================================
-   NEGRITA
-   ========================================================= */
 
 .ai-content strong {
 
@@ -563,11 +487,6 @@ main {
 
 }
 
-
-/* =========================================================
-   CURSIVA
-   ========================================================= */
-
 .ai-content em {
 
     color:
@@ -575,10 +494,25 @@ main {
 
 }
 
+.ai-content code {
 
-/* =========================================================
-   ENCABEZADOS
-   ========================================================= */
+    background:
+        rgba(0,0,0,0.25);
+
+    padding:
+        2px 6px;
+
+    border-radius:
+        5px;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size:
+        0.9em;
+
+}
 
 .ai-heading {
 
@@ -589,7 +523,6 @@ main {
         var(--texto);
 
 }
-
 
 .ai-heading-main {
 
@@ -604,7 +537,6 @@ main {
 
 }
 
-
 .ai-heading-sub {
 
     margin:
@@ -618,18 +550,12 @@ main {
 
 }
 
-
 .ai-heading:first-child {
 
     margin-top:
         0;
 
 }
-
-
-/* =========================================================
-   LISTAS
-   ========================================================= */
 
 .ai-list {
 
@@ -644,7 +570,6 @@ main {
 
 }
 
-
 .ai-list li {
 
     margin:
@@ -655,7 +580,6 @@ main {
 
 }
 
-
 .ai-list li::marker {
 
     color:
@@ -665,11 +589,6 @@ main {
         0.9em;
 
 }
-
-
-/* =========================================================
-   LISTAS NUMERADAS
-   ========================================================= */
 
 .ai-numbered-list {
 
@@ -684,7 +603,6 @@ main {
 
 }
 
-
 .ai-numbered-list li {
 
     margin:
@@ -695,7 +613,6 @@ main {
 
 }
 
-
 .ai-numbered-list li::marker {
 
     color:
@@ -705,11 +622,6 @@ main {
         800;
 
 }
-
-
-/* =========================================================
-   SEPARADORES
-   ========================================================= */
 
 .ai-separator {
 
@@ -734,11 +646,6 @@ main {
 
 }
 
-
-/* =========================================================
-   TABLAS CONVERTIDAS EN CUADROS
-   ========================================================= */
-
 .ai-table {
 
     display:
@@ -757,7 +664,6 @@ main {
         16px 0 18px;
 
 }
-
 
 .ai-table-card {
 
@@ -795,7 +701,6 @@ main {
 
 }
 
-
 .ai-table-card:hover {
 
     transform:
@@ -808,7 +713,6 @@ main {
         var(--rojo);
 
 }
-
 
 .ai-table-title {
 
@@ -825,7 +729,6 @@ main {
         9px;
 
 }
-
 
 .ai-table-label {
 
@@ -852,7 +755,6 @@ main {
 
 }
 
-
 .ai-table-value {
 
     color:
@@ -866,7 +768,6 @@ main {
 
 }
 
-
 .ai-table-wide {
 
     grid-template-columns:
@@ -876,11 +777,6 @@ main {
         );
 
 }
-
-
-/* =========================================================
-   INPUT
-   ========================================================= */
 
 .input {
 
@@ -897,7 +793,6 @@ main {
         1px solid var(--rojo);
 
 }
-
 
 input {
 
@@ -930,14 +825,12 @@ input {
 
 }
 
-
 input::placeholder {
 
     color:
         var(--texto-secundario);
 
 }
-
 
 input:focus {
 
@@ -951,7 +844,6 @@ input:focus {
         );
 
 }
-
 
 button {
 
@@ -978,18 +870,12 @@ button {
 
 }
 
-
 button:hover {
 
     background:
         var(--rojo-oscuro);
 
 }
-
-
-/* =========================================================
-   INFORMACIÓN
-   ========================================================= */
 
 .info {
 
@@ -1010,14 +896,12 @@ button:hover {
 
 }
 
-
 .info h2 {
 
     margin-top:
         0;
 
 }
-
 
 .info p {
 
@@ -1028,11 +912,6 @@ button:hover {
         1.65;
 
 }
-
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
 
 footer {
 
@@ -1050,11 +929,6 @@ footer {
 
 }
 
-
-/* =========================================================
-   MÓVIL
-   ========================================================= */
-
 @media (max-width: 700px) {
 
     header {
@@ -1064,14 +938,12 @@ footer {
 
     }
 
-
     .header-quote {
 
         display:
             none;
 
     }
-
 
     main {
 
@@ -1083,7 +955,6 @@ footer {
 
     }
 
-
     .hero {
 
         padding:
@@ -1091,14 +962,12 @@ footer {
 
     }
 
-
     .hero h1 {
 
         font-size:
             43px;
 
     }
-
 
     .messages {
 
@@ -1110,14 +979,12 @@ footer {
 
     }
 
-
     .input button {
 
         padding:
             12px;
 
     }
-
 
     .msg {
 
@@ -1126,7 +993,6 @@ footer {
 
     }
 
-
     .ai-table {
 
         grid-template-columns:
@@ -1134,14 +1000,12 @@ footer {
 
     }
 
-
     .ai-heading-main {
 
         font-size:
             18px;
 
     }
-
 
     .ai-heading-sub {
 
@@ -1156,9 +1020,7 @@ footer {
 
 </head>
 
-
 <body>
-
 
 <header>
 
@@ -1174,7 +1036,6 @@ footer {
 
 </div>
 
-
 <div class="header-quote">
 
     “Conocer nuestra historia es comprender
@@ -1184,9 +1045,7 @@ footer {
 
 </header>
 
-
 <main>
-
 
 <section class="hero">
 
@@ -1194,11 +1053,9 @@ footer {
     Asistente educativo dominicano
 </div>
 
-
 <h1>
     DomAI
 </h1>
-
 
 <p>
 
@@ -1218,9 +1075,7 @@ footer {
 
 </section>
 
-
 <section class="chat">
-
 
 <div class="chat-head">
 
@@ -1228,16 +1083,13 @@ footer {
     🤖 DomAI · Asistente
 </div>
 
-
 <div class="chat-status">
     Versión conectada a IA
 </div>
 
 </div>
 
-
 <div id="messages" class="messages">
-
 
 <div class="msg bot">
 
@@ -1249,14 +1101,12 @@ footer {
 
 </p>
 
-
 <p class="ai-paragraph">
 
     Soy un asistente educativo especializado
     en República Dominicana.
 
 </p>
-
 
 <p class="ai-paragraph">
 
@@ -1265,13 +1115,11 @@ footer {
 
 </p>
 
-
 <p class="ai-paragraph">
 
     También podemos explorar:
 
 </p>
-
 
 <ul class="ai-list">
 
@@ -1291,7 +1139,6 @@ footer {
 
 </ul>
 
-
 <p class="ai-paragraph">
 
     Escribe cualquier pregunta para comenzar.
@@ -1304,7 +1151,6 @@ footer {
 
 </div>
 
-
 <div class="input">
 
 <input
@@ -1312,7 +1158,6 @@ id="text"
 placeholder="Pregunta a DomAI sobre República Dominicana..."
 onkeydown="if(event.key === 'Enter') send()"
 >
-
 
 <button onclick="send()">
     Enviar
@@ -1322,14 +1167,11 @@ onkeydown="if(event.key === 'Enter') send()"
 
 </section>
 
-
 <div class="section-title">
     Áreas de conocimiento
 </div>
 
-
 <section class="grid">
-
 
 <div
 class="card"
@@ -1352,7 +1194,6 @@ onclick="quick('Quiero estudiar Ciencias Sociales desde cero. Enséñame como un
 
 </div>
 
-
 <div
 class="card"
 onclick="quick('Enséñame la historia de República Dominicana de forma cronológica y profunda.')"
@@ -1373,7 +1214,6 @@ onclick="quick('Enséñame la historia de República Dominicana de forma cronol�
 </p>
 
 </div>
-
 
 <div
 class="card"
@@ -1396,7 +1236,6 @@ onclick="quick('Quiero aprender profundamente sobre la cultura dominicana.')"
 
 </div>
 
-
 <div
 class="card"
 onclick="quick('Enséñame la gastronomía dominicana, sus platos, ingredientes, historia e influencias.')"
@@ -1417,7 +1256,6 @@ onclick="quick('Enséñame la gastronomía dominicana, sus platos, ingredientes,
 </p>
 
 </div>
-
 
 <div
 class="card"
@@ -1440,7 +1278,6 @@ onclick="quick('Explícame la historia y evolución de la música dominicana.')"
 
 </div>
 
-
 <div
 class="card"
 onclick="quick('Háblame del cine dominicano y de la evolución de sus películas e industria.')"
@@ -1461,7 +1298,6 @@ onclick="quick('Háblame del cine dominicano y de la evolución de sus película
 </p>
 
 </div>
-
 
 <div
 class="card"
@@ -1484,7 +1320,6 @@ onclick="quick('Enséñame la geografía de República Dominicana.')"
 
 </div>
 
-
 <div
 class="card"
 onclick="quick('Quiero aprender sobre literatura dominicana.')"
@@ -1505,7 +1340,6 @@ onclick="quick('Quiero aprender sobre literatura dominicana.')"
 </p>
 
 </div>
-
 
 <div
 class="card"
@@ -1528,7 +1362,6 @@ onclick="quick('Explícame cómo funciona la sociedad dominicana desde una persp
 
 </div>
 
-
 <div
 class="card"
 onclick="quick('Háblame del patrimonio histórico y cultural de República Dominicana.')"
@@ -1549,7 +1382,6 @@ onclick="quick('Háblame del patrimonio histórico y cultural de República Domi
 
 </div>
 
-
 <div
 class="card"
 onclick="quick('Llévame al año 1844 y explícame qué ocurría en República Dominicana y su contexto.')"
@@ -1569,7 +1401,6 @@ onclick="quick('Llévame al año 1844 y explícame qué ocurría en República D
 </p>
 
 </div>
-
 
 <div
 class="card"
@@ -1592,9 +1423,7 @@ onclick="quick('Activa el modo profesor. Hazme una clase avanzada de Ciencias So
 
 </div>
 
-
 </section>
-
 
 <section class="info">
 
@@ -1602,13 +1431,11 @@ onclick="quick('Activa el modo profesor. Hazme una clase avanzada de Ciencias So
     La misión de DomAI
 </h2>
 
-
 <p>
 DomAI está diseñado para convertirse en un
 asistente educativo de alto nivel para los
 jóvenes dominicanos.
 </p>
-
 
 <p>
 En Ciencias Sociales debe ser capaz de explicar
@@ -1619,14 +1446,12 @@ y consecuencias y ayudar al estudiante a
 construir argumentos.
 </p>
 
-
 <p>
 También debe enseñar a utilizar y analizar
 fuentes históricas y sociales, distinguir entre
 hechos, interpretaciones y opiniones, y fomentar
 el pensamiento crítico.
 </p>
-
 
 <p>
 Fuera de las Ciencias Sociales, DomAI tendrá
@@ -1637,7 +1462,6 @@ deportes, expresiones populares y otros aspectos
 de la vida dominicana.
 </p>
 
-
 <p>
 Cuando esté conectado a una fuente de información
 actualizada, deberá verificar la información
@@ -1647,9 +1471,7 @@ no confirmada como hechos.
 
 </section>
 
-
 </main>
-
 
 <footer>
 
@@ -1666,21 +1488,13 @@ comprender y valorar la República Dominicana.
 
 </footer>
 
-
 <script>
-
-
-/* =========================================================
-   ELEMENTOS
-   ========================================================= */
 
 const messages =
     document.getElementById("messages");
 
-
 const input =
     document.getElementById("text");
-
 
 let conversation = [];
 
@@ -1712,10 +1526,6 @@ function formatInline(text) {
         escapeHTML(text);
 
 
-    /*
-     * Negrita
-     */
-
     safe =
         safe.replace(
             /\*\*(.*?)\*\*/g,
@@ -1723,20 +1533,12 @@ function formatInline(text) {
         );
 
 
-    /*
-     * Cursiva
-     */
-
     safe =
         safe.replace(
             /(?<!\*)\*([^*\n]+)\*(?!\*)/g,
             "<em>$1</em>"
         );
 
-
-    /*
-     * Código inline
-     */
 
     safe =
         safe.replace(
@@ -1916,7 +1718,6 @@ function renderTextBlock(text) {
 
     let list = null;
 
-
     let orderedList = null;
 
 
@@ -1971,10 +1772,6 @@ function renderTextBlock(text) {
             rawLine.trim();
 
 
-        /*
-         * Línea vacía
-         */
-
         if (!line) {
 
             closeLists();
@@ -1983,10 +1780,6 @@ function renderTextBlock(text) {
 
         }
 
-
-        /*
-         * Separador Markdown
-         */
 
         if (
             /^-{3,}$/.test(line) ||
@@ -2124,7 +1917,7 @@ function renderTextBlock(text) {
 
 
         /*
-         * Lista con guion
+         * Lista con guion o asterisco
          */
 
         if (/^[-*]\s+/.test(line)) {
@@ -2225,10 +2018,6 @@ function renderTextBlock(text) {
         }
 
 
-        /*
-         * Texto normal
-         */
-
         closeLists();
 
 
@@ -2257,6 +2046,67 @@ function renderAIResponse(text) {
 
     container.className =
         "ai-content";
+
+
+    /*
+     * NORMALIZACIÓN
+     *
+     * Algunos modelos pueden devolver
+     * Markdown escapado como:
+     *
+     * \#### Título
+     * \* elemento
+     * \**texto**
+     *
+     * Lo convertimos a Markdown normal
+     * antes de procesarlo.
+     */
+
+    text = String(text || "")
+        .replace(/\\([*#_])/g, "$1")
+        .replace(/\r\n/g, "\n")
+        .replace(/\r/g, "\n");
+
+
+    /*
+     * Recuperar saltos de línea antes
+     * de encabezados que vengan pegados.
+     */
+
+    text = text.replace(
+        /\s+(#{1,4})\s+/g,
+        "\n$1 "
+    );
+
+
+    /*
+     * Recuperar saltos antes de listas.
+     */
+
+    text = text.replace(
+        /([.!?:])\s+([-*])\s+/g,
+        "$1\n$2 "
+    );
+
+
+    /*
+     * Recuperar listas numeradas.
+     */
+
+    text = text.replace(
+        /([.!?:])\s+(\d+\.)\s+/g,
+        "$1\n$2 "
+    );
+
+
+    /*
+     * Recuperar separadores.
+     */
+
+    text = text.replace(
+        /\s+---+\s+/g,
+        "\n---\n"
+    );
 
 
     const lines =
@@ -2699,7 +2549,6 @@ function send() {
 }
 
 </script>
-
 
 </body>
 
