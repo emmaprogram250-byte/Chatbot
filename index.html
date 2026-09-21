@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -10,13 +11,6 @@ content="DomAI — asistente educativo especializado en Ciencias Sociales, histo
 <title>DomAI — Inteligencia Dominicana 🇩🇴</title>
 
 <style>
-
-/* =========================================================
-   DOMAI
-   Diseño inspirado exclusivamente en los colores
-   principales de la bandera dominicana:
-   AZUL + ROJO
-   ========================================================= */
 
 :root {
     --azul: #002D62;
@@ -50,79 +44,42 @@ body {
     color: var(--texto);
 }
 
-
-/* =========================================================
-   HEADER
-   ========================================================= */
-
 header {
-
     padding: 18px 26px;
-
     background: var(--azul-oscuro);
-
     border-bottom: 3px solid var(--rojo);
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
     gap: 20px;
 }
 
 .logo {
-
     font-size: 30px;
-
     font-weight: 900;
-
     letter-spacing: -1px;
 }
 
 .tag {
-
     margin-top: 3px;
-
     font-size: 13px;
-
     color: var(--texto-secundario);
 }
 
 .header-quote {
-
     font-size: 13px;
-
     color: var(--texto-secundario);
-
     text-align: right;
-
     max-width: 330px;
 }
 
-
-/* =========================================================
-   CONTENEDOR PRINCIPAL
-   ========================================================= */
-
 main {
-
     width: min(1200px, 92%);
-
     margin: auto;
-
     padding: 28px 0 50px;
-
     display: flex;
-
     flex-direction: column;
 }
-
-
-/* =========================================================
-   ORDEN PRINCIPAL DE DOMAI
-   ========================================================= */
 
 .hero {
     order: 1;
@@ -144,120 +101,69 @@ main {
     order: 5;
 }
 
-
-/* =========================================================
-   HERO
-   ========================================================= */
-
 .hero {
-
     padding: 42px;
-
     border-radius: 22px;
-
     background: var(--azul-oscuro);
-
     border: 1px solid var(--rojo);
-
     position: relative;
-
     overflow: hidden;
 }
 
 .hero::after {
-
     content: "";
-
     position: absolute;
-
     width: 180px;
-
     height: 180px;
-
     border-radius: 50%;
-
     border: 28px solid var(--rojo);
-
     right: -80px;
-
     top: -90px;
-
     opacity: 0.25;
 }
 
 .kicker {
-
     color: var(--rojo);
-
     font-size: 12px;
-
     font-weight: 800;
-
     letter-spacing: 2px;
-
     text-transform: uppercase;
 }
 
 .hero h1 {
-
     font-size: clamp(40px, 7vw, 64px);
-
     margin: 12px 0;
-
     line-height: 1;
-
     letter-spacing: -3px;
 }
 
 .hero p {
-
     max-width: 850px;
-
     color: var(--texto-secundario);
-
     font-size: 17px;
-
     line-height: 1.65;
 }
 
-
-/* =========================================================
-   ÁREAS DE CONOCIMIENTO
-   ========================================================= */
-
 .section-title {
-
     margin: 32px 0 15px;
-
     font-size: 22px;
-
     font-weight: 800;
 }
 
 .grid {
-
     display: grid;
-
     grid-template-columns:
         repeat(auto-fit, minmax(210px, 1fr));
-
     gap: 14px;
 }
 
 .card {
-
     min-height: 155px;
-
     padding: 21px;
-
     border-radius: 17px;
-
     background: var(--azul-oscuro);
-
     border: 1px solid var(--borde);
-
     cursor: pointer;
-
     transition:
         transform 0.2s ease,
         background 0.2s ease,
@@ -265,408 +171,269 @@ main {
 }
 
 .card:hover {
-
     transform: translateY(-4px);
-
     background: var(--azul-claro);
-
     border-color: var(--rojo);
 }
 
 .card-number {
-
     font-size: 12px;
-
     font-weight: 900;
-
     color: var(--rojo);
-
     letter-spacing: 1px;
 }
 
 .card h3 {
-
     margin: 12px 0 7px;
-
     font-size: 17px;
 }
 
 .card p {
-
     margin: 0;
-
     color: var(--texto-secundario);
-
     font-size: 13px;
-
     line-height: 1.5;
 }
 
-
-/* =========================================================
-   CHAT
-   ========================================================= */
-
 .chat {
-
     margin-top: 30px;
-
     background: var(--azul-oscuro);
-
     border: 1px solid var(--rojo);
-
     border-radius: 21px;
-
     overflow: hidden;
 }
 
 .chat-head {
-
     padding: 17px 20px;
-
     border-bottom: 1px solid var(--rojo);
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
     gap: 10px;
 }
 
 .chat-title {
-
     font-weight: 900;
-
     font-size: 17px;
 }
 
 .chat-status {
-
     font-size: 11px;
-
     color: var(--texto-secundario);
 }
 
-
-/* =========================================================
-   ÁREA GRANDE DEL CHAT
-   ========================================================= */
-
 .messages {
-
     height: 650px;
-
     overflow-y: auto;
-
     padding: 25px;
 }
 
 .msg {
-
     max-width: 86%;
-
     padding: 14px 16px;
-
     margin: 10px 0;
-
     border-radius: 15px;
-
     line-height: 1.55;
-
     white-space: pre-wrap;
-
     font-size: 14px;
 }
 
 .bot {
-
     background: var(--azul-claro);
-
     border-left: 3px solid var(--rojo);
 }
 
 .user {
-
     background: var(--rojo);
-
     margin-left: auto;
 }
 
-
-/* =========================================================
-   INPUT
-   ========================================================= */
-
 .input {
-
     display: flex;
-
     gap: 9px;
-
     padding: 13px;
-
     border-top: 1px solid var(--rojo);
 }
 
 input {
-
     flex: 1;
-
     min-width: 0;
-
     padding: 14px 15px;
-
     border-radius: 12px;
-
     border: 1px solid var(--rojo);
-
     outline: none;
-
     background: var(--azul);
-
     color: var(--texto);
-
     font-size: 15px;
 }
 
 input::placeholder {
-
     color: var(--texto-secundario);
 }
 
 input:focus {
-
     box-shadow:
         0 0 0 2px
         rgba(206, 17, 38, 0.25);
 }
 
 button {
-
     border: 0;
-
     border-radius: 12px;
-
     padding: 12px 19px;
-
     background: var(--rojo);
-
     color: var(--texto);
-
     font-weight: 800;
-
     cursor: pointer;
 }
 
 button:hover {
-
     background: var(--rojo-oscuro);
 }
 
-
-/* =========================================================
-   INFORMACIÓN DEL PROYECTO
-   ========================================================= */
-
 .info {
-
     margin-top: 25px;
-
     padding: 24px;
-
     border-radius: 17px;
-
     background: var(--azul-oscuro);
-
     border: 1px solid var(--rojo);
 }
 
 .info h2 {
-
     margin-top: 0;
 }
 
 .info p {
-
     color: var(--texto-secundario);
-
     line-height: 1.65;
 }
 
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
 footer {
-
     text-align: center;
-
     padding: 30px 15px;
-
     color: var(--texto-secundario);
-
     border-top: 3px solid var(--rojo);
 }
-
-
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
 
 @media (max-width: 700px) {
 
     header {
-
         padding: 15px 17px;
     }
 
     .header-quote {
-
         display: none;
     }
 
     main {
-
         width: 94%;
-
         padding-top: 18px;
     }
 
     .hero {
-
         padding: 28px;
     }
 
     .hero h1 {
-
         font-size: 43px;
     }
 
-    /* Chat más cómodo en teléfonos */
-
     .messages {
-
         height: 500px;
-
         padding: 20px;
     }
 
     .input button {
-
         padding: 12px;
     }
 }
 
 </style>
-</head>
 
+</head>
 
 <body>
 
-
-<!-- =======================================================
-     HEADER
-     ======================================================= -->
-
 <header>
 
-    <div>
+```
+<div>
 
-        <div class="logo">
-            🇩🇴 DomAI
-        </div>
-
-        <div class="tag">
-            Inteligencia, educación y conocimiento dominicano
-        </div>
-
+    <div class="logo">
+        🇩🇴 DomAI
     </div>
 
-
-    <div class="header-quote">
-
-        “Conocer nuestra historia es comprender
-        quiénes somos.”
-
-    </div>
-
-</header>
-
-
-<main>
-
-
-<!-- =======================================================
-     HERO
-     ======================================================= -->
-
-<section class="hero">
-
-    <div class="kicker">
-        Asistente educativo dominicano
-    </div>
-
-    <h1>
-        DomAI
-    </h1>
-
-    <p>
-
-        Un asistente diseñado para ayudar a los jóvenes
-        dominicanos a estudiar, investigar y comprender
-        las Ciencias Sociales desde los conceptos más
-        básicos hasta temas avanzados.
-
-        <br><br>
-
-        Su conocimiento también abarca historia,
-        cultura, gastronomía, geografía, sociedad,
-        música, cine, literatura, patrimonio y
-        muchos otros aspectos de la República Dominicana.
-
-    </p>
-
-</section>
-
-
-<!-- =======================================================
-     CHAT
-     ======================================================= -->
-
-<section class="chat">
-
-
-<div class="chat-head">
-
-    <div class="chat-title">
-        🤖 DomAI · Asistente
-    </div>
-
-    <div class="chat-status">
-        Versión local de demostración
+    <div class="tag">
+        Inteligencia, educación y conocimiento dominicano
     </div>
 
 </div>
 
+<div class="header-quote">
+    “Conocer nuestra historia es comprender
+    quiénes somos.”
+</div>
+```
+
+</header>
+
+<main>
+
+<section class="hero">
+
+```
+<div class="kicker">
+    Asistente educativo dominicano
+</div>
+
+<h1>
+    DomAI
+</h1>
+
+<p>
+    Un asistente diseñado para ayudar a los jóvenes
+    dominicanos a estudiar, investigar y comprender
+    las Ciencias Sociales desde los conceptos más
+    básicos hasta temas avanzados.
+
+    <br><br>
+
+    Su conocimiento también abarca historia,
+    cultura, gastronomía, geografía, sociedad,
+    música, cine, literatura, patrimonio y
+    muchos otros aspectos de la República Dominicana.
+</p>
+```
+
+</section>
+
+<section class="chat">
+
+<div class="chat-head">
+
+```
+<div class="chat-title">
+    🤖 DomAI · Asistente
+</div>
+
+<div class="chat-status">
+    Versión local de demostración
+</div>
+```
+
+</div>
 
 <div id="messages" class="messages">
-
 
 <div class="msg bot">
 
 Bienvenido a DomAI. 🇩🇴
 
-
 Soy un asistente educativo especializado
 en República Dominicana.
 
-
 Mi prioridad es ayudarte a comprender
 las Ciencias Sociales con profundidad.
-
 
 También podemos explorar:
 
@@ -684,48 +451,34 @@ También podemos explorar:
 • Política
 • Y muchos otros temas dominicanos.
 
-
 Escribe cualquier pregunta para comenzar.
 
 </div>
 
-
 </div>
 
-
 <div class="input">
-
 
 <input
 id="text"
 placeholder="Pregunta a DomAI sobre República Dominicana..."
 onkeydown="if(event.key === 'Enter') send()"
->
 
+>
 
 <button onclick="send()">
     Enviar
 </button>
 
-
 </div>
 
 </section>
-
-
-<!-- =======================================================
-     ÁREAS PRINCIPALES
-     ======================================================= -->
 
 <div class="section-title">
     Áreas de conocimiento
 </div>
 
-
 <section class="grid">
-
-
-<!-- CIENCIAS SOCIALES -->
 
 <div
 class="card"
@@ -741,17 +494,12 @@ onclick="quick('Quiero estudiar Ciencias Sociales desde cero. Enséñame como un
 </h3>
 
 <p>
-
     Historia, geografía, sociología,
     antropología, economía, ciudadanía,
     política y relaciones sociales.
-
 </p>
 
 </div>
-
-
-<!-- HISTORIA -->
 
 <div
 class="card"
@@ -767,17 +515,12 @@ onclick="quick('Enséñame la historia de República Dominicana de forma cronol�
 </h3>
 
 <p>
-
     Desde los pueblos originarios,
     la colonización y la independencia
     hasta la República contemporánea.
-
 </p>
 
 </div>
-
-
-<!-- CULTURA -->
 
 <div
 class="card"
@@ -793,17 +536,12 @@ onclick="quick('Quiero aprender profundamente sobre la cultura dominicana.')"
 </h3>
 
 <p>
-
     Identidad, tradiciones, folclore,
     arte, fiestas, patrimonio,
     lenguaje y costumbres.
-
 </p>
 
 </div>
-
-
-<!-- GASTRONOMÍA -->
 
 <div
 class="card"
@@ -819,17 +557,12 @@ onclick="quick('Enséñame la gastronomía dominicana, sus platos, ingredientes,
 </h3>
 
 <p>
-
     Platos, ingredientes, técnicas,
     regiones, historia e influencias
     culturales.
-
 </p>
 
 </div>
-
-
-<!-- MÚSICA -->
 
 <div
 class="card"
@@ -845,17 +578,12 @@ onclick="quick('Explícame la historia y evolución de la música dominicana.')"
 </h3>
 
 <p>
-
     Merengue, bachata, dembow,
     fusiones, artistas, géneros
     e historia musical.
-
 </p>
 
 </div>
-
-
-<!-- CINE -->
 
 <div
 class="card"
@@ -871,17 +599,12 @@ onclick="quick('Háblame del cine dominicano y de la evolución de sus película
 </h3>
 
 <p>
-
     Películas, directores, actores,
     géneros, documentales e industria
     cinematográfica.
-
 </p>
 
 </div>
-
-
-<!-- GEOGRAFÍA -->
 
 <div
 class="card"
@@ -897,17 +620,12 @@ onclick="quick('Enséñame la geografía de República Dominicana.')"
 </h3>
 
 <p>
-
     Provincias, regiones, relieve,
     clima, población, fronteras,
     ciudades y territorio.
-
 </p>
 
 </div>
-
-
-<!-- LITERATURA -->
 
 <div
 class="card"
@@ -923,17 +641,12 @@ onclick="quick('Quiero aprender sobre literatura dominicana.')"
 </h3>
 
 <p>
-
     Autores, obras, movimientos,
     poesía, narrativa y pensamiento
     dominicano.
-
 </p>
 
 </div>
-
-
-<!-- SOCIEDAD -->
 
 <div
 class="card"
@@ -949,17 +662,12 @@ onclick="quick('Explícame cómo funciona la sociedad dominicana desde una persp
 </h3>
 
 <p>
-
     Población, identidad, cambios
     sociales, juventud, educación,
     desigualdad y desarrollo.
-
 </p>
 
 </div>
-
-
-<!-- PATRIMONIO -->
 
 <div
 class="card"
@@ -975,16 +683,11 @@ onclick="quick('Háblame del patrimonio histórico y cultural de República Domi
 </h3>
 
 <p>
-
     Monumentos, lugares históricos,
     patrimonio cultural y natural.
-
 </p>
 
 </div>
-
-
-<!-- MÁQUINA DEL TIEMPO -->
 
 <div
 class="card"
@@ -1000,16 +703,11 @@ onclick="quick('Llévame al año 1844 y explícame qué ocurría en República D
 </h3>
 
 <p>
-
     Viaja por años, períodos y
     acontecimientos históricos.
-
 </p>
 
 </div>
-
-
-<!-- MODO PROFESOR -->
 
 <div
 class="card"
@@ -1025,22 +723,14 @@ onclick="quick('Activa el modo profesor. Hazme una clase avanzada de Ciencias So
 </h3>
 
 <p>
-
     Clases, ejercicios, análisis,
     debates, preguntas y preparación
     académica.
-
 </p>
 
 </div>
 
-
 </section>
-
-
-<!-- =======================================================
-     MISIÓN
-     ======================================================= -->
 
 <section class="info">
 
@@ -1048,104 +738,73 @@ onclick="quick('Activa el modo profesor. Hazme una clase avanzada de Ciencias So
     La misión de DomAI
 </h2>
 
-
 <p>
-
 DomAI está diseñado para convertirse en un
 asistente educativo de alto nivel para los
 jóvenes dominicanos.
-
 </p>
 
-
 <p>
-
 En Ciencias Sociales debe ser capaz de explicar
 conceptos desde el nivel introductorio hasta
 temas avanzados, relacionar acontecimientos,
 comparar procesos históricos, analizar causas
 y consecuencias y ayudar al estudiante a
 construir argumentos.
-
 </p>
 
-
 <p>
-
 También debe enseñar a utilizar y analizar
 fuentes históricas y sociales, distinguir entre
 hechos, interpretaciones y opiniones, y fomentar
 el pensamiento crítico.
-
 </p>
 
-
 <p>
-
 Fuera de las Ciencias Sociales, DomAI tendrá
 un conocimiento amplio de la República Dominicana:
 gastronomía, música, cine, literatura, arte,
 tradiciones, patrimonio, geografía, sociedad,
 deportes, expresiones populares y otros aspectos
 de la vida dominicana.
-
 </p>
 
-
 <p>
-
 Cuando esté conectado a una fuente de información
 actualizada, deberá verificar la información
 reciente y evitar presentar rumores o información
 no confirmada como hechos.
-
 </p>
-
 
 </section>
 
-
 </main>
-
-
-<!-- =======================================================
-     FOOTER
-     ======================================================= -->
 
 <footer>
 
-    🇩🇴
+```
+🇩🇴
 
-    <strong>
-        DomAI
-    </strong>
+<strong>
+    DomAI
+</strong>
 
-    <br><br>
+<br><br>
 
-    Inteligencia para conocer,
-    comprender y valorar la República Dominicana.
+Inteligencia para conocer,
+comprender y valorar la República Dominicana.
+```
 
 </footer>
 
-
-<!-- =======================================================
-     JAVASCRIPT
-     ======================================================= -->
-
 <script>
-
 
 const messages =
 document.getElementById("messages");
 
-
 const input =
 document.getElementById("text");
 
-
-/* =========================================================
-   AGREGAR MENSAJE
-   ========================================================= */
 
 function add(text, who) {
 
@@ -1165,10 +824,6 @@ function add(text, who) {
 }
 
 
-/* =========================================================
-   BOTONES RÁPIDOS
-   ========================================================= */
-
 function quick(text) {
 
     input.value =
@@ -1178,19 +833,10 @@ function quick(text) {
 }
 
 
-/* =========================================================
-   RESPUESTAS LOCALES TEMPORALES
-   ========================================================= */
-
 function answer(q) {
 
     const s =
     q.toLowerCase();
-
-
-    /* -----------------------------------------
-       CIENCIAS SOCIALES
-       ----------------------------------------- */
 
     if (
         s.includes("ciencias sociales") ||
@@ -1199,10 +845,8 @@ function answer(q) {
 
         return `DOMAI · CIENCIAS SOCIALES
 
-
 Las Ciencias Sociales estudian al ser humano
 como parte de la sociedad.
-
 
 Podemos estudiar:
 
@@ -1218,7 +862,6 @@ Podemos estudiar:
 • Cultura
 • Desarrollo social
 
-
 También puedo ayudarte a analizar:
 
 • Causas y consecuencias
@@ -1230,17 +873,11 @@ También puedo ayudarte a analizar:
 • Problemas sociales
 • Diferentes interpretaciones
 
-
 La futura versión conectada a IA podrá
 adaptar la explicación desde nivel básico
 hasta avanzado.`;
 
     }
-
-
-    /* -----------------------------------------
-       INDEPENDENCIA
-       ----------------------------------------- */
 
     if (
         s.includes("1844") ||
@@ -1249,10 +886,8 @@ hasta avanzado.`;
 
         return `🇩🇴 INDEPENDENCIA DOMINICANA · 1844
 
-
 El 27 de febrero de 1844 se proclamó
 la Independencia Dominicana.
-
 
 Entre las figuras centrales estuvieron:
 
@@ -1260,10 +895,8 @@ Entre las figuras centrales estuvieron:
 • Francisco del Rosario Sánchez
 • Matías Ramón Mella
 
-
 Pero para comprender 1844 de verdad,
 no basta con memorizar una fecha.
-
 
 Hay que estudiar:
 
@@ -1276,25 +909,17 @@ Hay que estudiar:
 7. La formación del nuevo Estado.
 8. Las consecuencias posteriores.
 
-
 Si quieres, podemos estudiarlo como
 una clase completa de Ciencias Sociales.`;
 
     }
 
-
-    /* -----------------------------------------
-       CULTURA
-       ----------------------------------------- */
-
     if (s.includes("cultura")) {
 
         return `CULTURA DOMINICANA
 
-
 La cultura dominicana es el resultado de
 procesos históricos y de múltiples influencias.
-
 
 Podemos estudiar:
 
@@ -1315,16 +940,10 @@ Podemos estudiar:
 • Influencias europeas
 • Influencias caribeñas
 
-
 También podemos estudiar cómo la cultura
 ha cambiado con el paso del tiempo.`;
 
     }
-
-
-    /* -----------------------------------------
-       GASTRONOMÍA
-       ----------------------------------------- */
 
     if (
         s.includes("gastronomía") ||
@@ -1334,11 +953,9 @@ ha cambiado con el paso del tiempo.`;
 
         return `GASTRONOMÍA DOMINICANA
 
-
 La gastronomía puede estudiarse no solo
 como comida, sino también como historia
 y cultura.
-
 
 Podemos analizar:
 
@@ -1356,18 +973,12 @@ Podemos analizar:
 • Diferencias regionales
 • Influencias históricas
 
-
 También podemos investigar de dónde vienen
 determinados alimentos y cómo fueron
 transformándose dentro de la sociedad
 dominicana.`;
 
     }
-
-
-    /* -----------------------------------------
-       MÚSICA
-       ----------------------------------------- */
 
     if (
         s.includes("música") ||
@@ -1376,10 +987,8 @@ dominicana.`;
 
         return `MÚSICA DOMINICANA
 
-
 DomAI puede estudiar la música dominicana
 desde una perspectiva histórica y cultural.
-
 
 Entre los temas:
 
@@ -1394,16 +1003,10 @@ Entre los temas:
 • Influencia social
 • Identidad cultural
 
-
 También podemos analizar cómo diferentes
 géneros reflejan cambios en la sociedad.`;
 
     }
-
-
-    /* -----------------------------------------
-       CINE
-       ----------------------------------------- */
 
     if (
         s.includes("película") ||
@@ -1413,10 +1016,8 @@ géneros reflejan cambios en la sociedad.`;
 
         return `CINE DOMINICANO
 
-
 El cine dominicano puede estudiarse desde
 la cultura, la historia y la sociedad.
-
 
 Podemos analizar:
 
@@ -1431,25 +1032,17 @@ Podemos analizar:
 • Temas sociales
 • Influencia cultural
 
-
 Para estrenos y datos actuales será necesario
 conectar DomAI a fuentes actualizadas.`;
 
     }
 
-
-    /* -----------------------------------------
-       HISTORIA
-       ----------------------------------------- */
-
     if (s.includes("historia")) {
 
         return `HISTORIA DOMINICANA
 
-
 Podemos estudiar la historia dominicana
 como un proceso continuo.
-
 
 Algunos grandes bloques:
 
@@ -1469,22 +1062,15 @@ Algunos grandes bloques:
 14. Segunda mitad del siglo XX.
 15. República Dominicana contemporánea.
 
-
 También podemos estudiar personajes,
 fuentes, causas, consecuencias y diferentes
 interpretaciones históricas.`;
 
     }
 
-
-    /* -----------------------------------------
-       GEOGRAFÍA
-       ----------------------------------------- */
-
     if (s.includes("geografía") || s.includes("geografia")) {
 
         return `GEOGRAFÍA DOMINICANA
-
 
 Podemos estudiar:
 
@@ -1503,32 +1089,22 @@ Podemos estudiar:
 • Actividades económicas
 • Distribución territorial
 
-
 También podemos relacionar la geografía
 con la historia y la economía.`;
 
     }
 
-
-    /* -----------------------------------------
-       QUIZ
-       ----------------------------------------- */
-
     if (s.includes("quiz")) {
 
         return `MODO PROFESOR · QUIZ
 
-
 Pregunta:
-
 
 ¿Por qué la Independencia Dominicana
 de 1844 fue importante para la formación
 del Estado dominicano?
 
-
 Intenta responder con tus propias palabras.
-
 
 Después puedo:
 
@@ -1540,24 +1116,15 @@ Después puedo:
 
     }
 
-
-    /* -----------------------------------------
-       RESPUESTA GENERAL
-       ----------------------------------------- */
-
     return `DOMAI
 
-
 He recibido tu pregunta.
-
 
 Actualmente estás utilizando la versión
 local de demostración.
 
-
 DomAI está diseñado para convertirse en
 un asistente especializado en:
-
 
 • Ciencias Sociales
 • Historia dominicana
@@ -1573,10 +1140,8 @@ un asistente especializado en:
 • Ciudadanía
 • Política
 
-
 El siguiente paso será conectar este
 chat con un modelo de IA real.
-
 
 Cuando hagamos esa conexión, estas áreas
 se convertirán en instrucciones permanentes
@@ -1598,59 +1163,61 @@ function send() {
     if (!q)
         return;
 
-
     add(q, "user");
-
 
     input.value = "";
 
-
-```javascript
-fetch("https://rapid-poetry-6a90domai-backend.emmaprogram250.workers.dev/", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        message: q
+    fetch("https://rapid-poetry-6a90domai-backend.emmaprogram250.workers.dev/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            message: q
+        })
     })
-})
-.then(async response => {
+    .then(async response => {
 
-    const data = await response.json();
+        const data = await response.json();
 
-    console.log("Worker status:", response.status);
-    console.log("Worker response:", data);
+        console.log("Worker status:", response.status);
+        console.log("Worker response:", data);
 
-    if (!response.ok) {
-        throw new Error(
-            data.details?.error?.message ||
+        if (!response.ok) {
+            throw new Error(
+                data.details?.error?.message ||
+                data.error ||
+                "Error del servidor"
+            );
+        }
+
+        return data;
+
+    })
+    .then(data => {
+
+        const respuesta =
+            data.choices?.[0]?.message?.content ||
             data.error ||
-            "Error del servidor"
+            "No recibí una respuesta válida de DomAI.";
+
+        add(respuesta, "bot");
+
+    })
+    .catch(error => {
+
+        console.error("DomAI error:", error);
+
+        add(
+            "Error al conectar con DomAI: " + error.message,
+            "bot"
         );
-    }
 
-    return data;
+    });
 
-})
-.then(data => {
+}
 
-    const respuesta =
-        data.choices?.[0]?.message?.content ||
-        data.error ||
-        "No recibí una respuesta válida de DomAI.";
+</script>
 
-    add(respuesta, "bot");
-
-})
-.catch(error => {
-
-    console.error("DomAI error:", error);
-
-    add(
-        "Error al conectar con DomAI: " + error.message,
-        "bot"
-    );
-
-});
-```
+</body>
+</html>
