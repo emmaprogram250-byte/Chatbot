@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
@@ -10,29 +9,55 @@
 content="width=device-width, initial-scale=1.0">
 
 <meta name="description"
-content="DomAI — asistente educativo especializado en Ciencias Sociales, historia y conocimiento de la República Dominicana.">
+content="DomAI — una plataforma de inteligencia artificial para aprender, investigar, crear y comprender.">
 
-<title>DomAI — Inteligencia Dominicana 🇩🇴</title>
+<title>DomAI — Inteligencia que trabaja contigo</title>
 
 <style>
 
+/* =========================================================
+   DOMAI — PREMIUM AI INTERFACE
+   ========================================================= */
+
 :root {
 
-    --azul: #002D62;
-    --azul-oscuro: #001A3A;
-    --azul-claro: #063D7A;
+    --bg: #07080c;
+    --bg-soft: #0b0d12;
+    --panel: #101219;
+    --panel-hover: #151821;
 
-    --rojo: #CE1126;
-    --rojo-oscuro: #9E0B1D;
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.14);
 
-    --texto: #FFFFFF;
-    --texto-secundario: #D6E0EC;
+    --text: #f5f7fa;
+    --text-soft: #a5adba;
+    --text-muted: #737b89;
 
-    --borde: rgba(206, 17, 38, 0.75);
+    --accent: #8b5cf6;
+    --accent-2: #6366f1;
+
+    --accent-soft: rgba(139,92,246,0.13);
+
+    --success: #35d07f;
+
+    --shadow:
+        0 20px 60px rgba(0,0,0,0.35);
+
+    --radius: 18px;
+
 }
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
 
 * {
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -40,393 +65,913 @@ body {
     margin: 0;
 
     font-family:
-        Arial,
-        Helvetica,
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
         sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(99,102,241,0.13),
+            transparent 35%
+        ),
+        var(--bg);
+
+    color: var(--text);
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        rgba(255,255,255,0.12);
+
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+    background:
+        rgba(255,255,255,0.2);
+}
+
+
+/* =========================================================
+   APP
+   ========================================================= */
+
+.app {
+
+    min-height: 100vh;
+
+    display: flex;
+
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+
+    width: 260px;
+
+    height: 100vh;
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 18px 14px;
+
+    background:
+        rgba(8,9,13,0.94);
+
+    border-right:
+        1px solid var(--border);
+
+    backdrop-filter:
+        blur(20px);
+
+    z-index: 50;
+
+}
+
+
+/* LOGO */
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    padding:
+        7px 9px 22px;
+
+}
+
+.brand-icon {
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 11px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
 
     background:
         linear-gradient(
             135deg,
-            var(--azul-oscuro),
-            var(--azul)
+            var(--accent),
+            var(--accent-2)
         );
 
-    color: var(--texto);
-}
-
-header {
-
-    padding: 18px 26px;
-
-    background:
-        var(--azul-oscuro);
-
-    border-bottom:
-        3px solid var(--rojo);
-
-    display: flex;
-
-    justify-content:
-        space-between;
-
-    align-items:
-        center;
-
-    gap: 20px;
-}
-
-.logo {
-
-    font-size: 30px;
+    box-shadow:
+        0 8px 25px
+        rgba(99,102,241,0.25);
 
     font-weight: 900;
 
-    letter-spacing: -1px;
+    font-size: 16px;
+
 }
 
-.tag {
+.brand-name {
 
-    margin-top: 3px;
-
-    font-size: 13px;
-
-    color:
-        var(--texto-secundario);
-}
-
-.header-quote {
-
-    font-size: 13px;
-
-    color:
-        var(--texto-secundario);
-
-    text-align: right;
-
-    max-width: 330px;
-}
-
-main {
-
-    width:
-        min(1200px, 92%);
-
-    margin:
-        auto;
-
-    padding:
-        28px 0 50px;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-}
-
-.hero {
-    order: 1;
-}
-
-.chat {
-    order: 2;
-}
-
-.section-title {
-    order: 3;
-}
-
-.grid {
-    order: 4;
-}
-
-.info {
-    order: 5;
-}
-
-.hero {
-
-    padding: 42px;
-
-    border-radius: 22px;
-
-    background:
-        var(--azul-oscuro);
-
-    border:
-        1px solid var(--rojo);
-
-    position: relative;
-
-    overflow: hidden;
-}
-
-.hero::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 180px;
-
-    height: 180px;
-
-    border-radius: 50%;
-
-    border:
-        28px solid var(--rojo);
-
-    right: -80px;
-
-    top: -90px;
-
-    opacity: 0.25;
-}
-
-.kicker {
-
-    color:
-        var(--rojo);
-
-    font-size: 12px;
+    font-size: 19px;
 
     font-weight: 800;
 
-    letter-spacing: 2px;
+    letter-spacing:
+        -0.6px;
+
+}
+
+.brand-version {
+
+    font-size: 10px;
+
+    color:
+        var(--text-muted);
+
+    margin-top: 2px;
+
+}
+
+
+/* NEW CHAT */
+
+.new-chat {
+
+    width: 100%;
+
+    padding: 12px 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background:
+        rgba(255,255,255,0.055);
+
+    border:
+        1px solid var(--border);
+
+    color:
+        var(--text);
+
+    border-radius:
+        12px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition:
+        0.2s ease;
+
+}
+
+.new-chat:hover {
+
+    background:
+        rgba(255,255,255,0.09);
+
+    border-color:
+        var(--border-hover);
+
+    transform:
+        translateY(-1px);
+
+}
+
+.new-chat-icon {
+
+    width: 22px;
+    height: 22px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 6px;
+
+    background:
+        var(--accent-soft);
+
+    color:
+        #bda8ff;
+
+}
+
+
+/* SIDEBAR SECTION */
+
+.sidebar-section {
+
+    margin-top: 27px;
+
+}
+
+.sidebar-label {
+
+    padding:
+        0 9px 9px;
+
+    color:
+        var(--text-muted);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing:
+        1.2px;
 
     text-transform:
         uppercase;
+
 }
 
-.hero h1 {
+.sidebar-item {
 
-    font-size:
-        clamp(40px, 7vw, 64px);
+    width: 100%;
 
-    margin:
-        12px 0;
+    padding:
+        9px;
 
-    line-height:
-        1;
+    display: flex;
 
-    letter-spacing:
-        -3px;
-}
+    align-items: center;
 
-.hero p {
-
-    max-width: 850px;
+    gap: 9px;
 
     color:
-        var(--texto-secundario);
+        var(--text-soft);
 
-    font-size: 17px;
+    border-radius:
+        9px;
 
-    line-height: 1.65;
-}
-
-.section-title {
-
-    margin:
-        32px 0 15px;
-
-    font-size: 22px;
-
-    font-weight: 800;
-}
-
-.grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(210px, 1fr)
-        );
-
-    gap: 14px;
-}
-
-.card {
-
-    min-height: 155px;
-
-    padding: 21px;
-
-    border-radius: 17px;
-
-    background:
-        var(--azul-oscuro);
-
-    border:
-        1px solid var(--borde);
+    font-size: 12px;
 
     cursor: pointer;
 
     transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease;
+        0.18s ease;
+
 }
 
-.card:hover {
-
-    transform:
-        translateY(-4px);
-
-    background:
-        var(--azul-claro);
-
-    border-color:
-        var(--rojo);
-}
-
-.card-number {
-
-    font-size: 12px;
-
-    font-weight: 900;
+.sidebar-item:hover {
 
     color:
-        var(--rojo);
-
-    letter-spacing: 1px;
-}
-
-.card h3 {
-
-    margin:
-        12px 0 7px;
-
-    font-size: 17px;
-}
-
-.card p {
-
-    margin: 0;
-
-    color:
-        var(--texto-secundario);
-
-    font-size: 13px;
-
-    line-height: 1.5;
-}
-
-.chat {
-
-    margin-top: 30px;
+        var(--text);
 
     background:
-        var(--azul-oscuro);
+        rgba(255,255,255,0.045);
+
+}
+
+
+/* SIDEBAR BOTTOM */
+
+.sidebar-bottom {
+
+    margin-top: auto;
+
+}
+
+.plan-box {
+
+    padding: 13px;
 
     border:
-        1px solid var(--rojo);
+        1px solid var(--border);
 
-    border-radius: 21px;
-
-    overflow: hidden;
-}
-
-.chat-head {
-
-    padding:
-        17px 20px;
-
-    border-bottom:
-        1px solid var(--rojo);
-
-    display: flex;
-
-    justify-content:
-        space-between;
-
-    align-items:
-        center;
-
-    gap: 10px;
-}
-
-.chat-title {
-
-    font-weight: 900;
-
-    font-size: 17px;
-}
-
-.chat-status {
-
-    font-size: 11px;
-
-    color:
-        var(--texto-secundario);
-}
-
-.messages {
-
-    height: 650px;
-
-    overflow-y: auto;
-
-    padding: 25px;
-
-    scroll-behavior: smooth;
-}
-
-.msg {
-
-    max-width: 86%;
-
-    padding:
-        15px 17px;
-
-    margin:
-        12px 0;
-
-    border-radius: 16px;
-
-    line-height: 1.6;
-
-    font-size: 14px;
-}
-
-.bot {
+    border-radius:
+        13px;
 
     background:
         linear-gradient(
             135deg,
-            var(--azul-claro),
-            #074887
+            rgba(139,92,246,0.10),
+            rgba(99,102,241,0.03)
         );
 
-    border-left:
-        3px solid var(--rojo);
-
-    box-shadow:
-        0 5px 18px rgba(0,0,0,0.12);
 }
 
-.user {
+.plan-title {
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+}
+
+.plan-text {
+
+    color:
+        var(--text-muted);
+
+    font-size: 10px;
+
+    line-height: 1.5;
+
+    margin-top: 4px;
+
+}
+
+.plan-button {
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 8px;
+
+    border: 0;
+
+    border-radius: 8px;
 
     background:
-        var(--rojo);
+        rgba(139,92,246,0.16);
+
+    color:
+        #c7b5ff;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.main {
+
+    margin-left: 260px;
+
+    width:
+        calc(100% - 260px);
+
+    min-height: 100vh;
+
+}
+
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.topbar {
+
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding:
+        0 28px;
+
+    border-bottom:
+        1px solid var(--border);
+
+    background:
+        rgba(7,8,12,0.72);
+
+    backdrop-filter:
+        blur(20px);
+
+    position:
+        sticky;
+
+    top: 0;
+
+    z-index: 20;
+
+}
+
+.topbar-title {
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color:
+        var(--text-soft);
+
+}
+
+.topbar-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+.status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding:
+        7px 10px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 20px;
+
+    color:
+        var(--text-muted);
+
+    font-size: 10px;
+
+}
+
+.status-dot {
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background:
+        var(--success);
+
+    box-shadow:
+        0 0 9px
+        rgba(53,208,127,0.7);
+
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.content {
+
+    width:
+        min(1100px, 94%);
+
+    margin:
+        0 auto;
+
+    padding:
+        70px 0 100px;
+
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+
+    text-align: center;
+
+    max-width: 800px;
+
+    margin:
+        0 auto 55px;
+
+    animation:
+        fadeUp 0.6s ease;
+
+}
+
+.hero-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding:
+        7px 11px;
+
+    border:
+        1px solid
+        rgba(139,92,246,0.22);
+
+    background:
+        rgba(139,92,246,0.07);
+
+    border-radius:
+        100px;
+
+    color:
+        #bda8ff;
+
+    font-size:
+        10px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.6px;
+
+}
+
+.hero-badge span {
+
+    width: 5px;
+    height: 5px;
+
+    background:
+        #a78bfa;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 8px
+        rgba(167,139,250,0.9);
+
+}
+
+.hero h1 {
+
+    margin:
+        22px 0 15px;
+
+    font-size:
+        clamp(44px, 7vw, 76px);
+
+    line-height:
+        0.98;
+
+    letter-spacing:
+        -4px;
+
+    font-weight:
+        850;
+
+}
+
+.hero h1 span {
+
+    background:
+        linear-gradient(
+            120deg,
+            #ffffff,
+            #a78bfa 55%,
+            #6366f1
+        );
+
+    -webkit-background-clip:
+        text;
+
+    background-clip:
+        text;
+
+    color:
+        transparent;
+
+}
+
+.hero p {
+
+    max-width:
+        650px;
+
+    margin:
+        0 auto;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        16px;
+
+    line-height:
+        1.7;
+
+}
+
+
+/* =========================================================
+   CHAT
+   ========================================================= */
+
+.chat {
+
+    background:
+        rgba(15,17,24,0.78);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        20px;
+
+    box-shadow:
+        var(--shadow);
+
+    overflow:
+        hidden;
+
+    animation:
+        fadeUp 0.7s ease;
+
+}
+
+
+/* CHAT HEADER */
+
+.chat-head {
+
+    height: 60px;
+
+    padding:
+        0 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid var(--border);
+
+    background:
+        rgba(255,255,255,0.015);
+
+}
+
+.chat-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+.chat-avatar {
+
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius:
+        9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent),
+            var(--accent-2)
+        );
+
+    font-size:
+        12px;
+
+    font-weight:
+        900;
+
+}
+
+.chat-name {
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+}
+
+.chat-sub {
+
+    font-size:
+        9px;
+
+    color:
+        var(--text-muted);
+
+    margin-top:
+        2px;
+
+}
+
+
+/* CHAT ACTIONS */
+
+.chat-actions {
+
+    display:
+        flex;
+
+    gap:
+        5px;
+
+}
+
+.icon-button {
+
+    width: 31px;
+    height: 31px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        transparent;
+
+    color:
+        var(--text-muted);
+
+    border-radius:
+        8px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    cursor:
+        pointer;
+
+    font-size:
+        13px;
+
+}
+
+.icon-button:hover {
+
+    color:
+        var(--text);
+
+    background:
+        rgba(255,255,255,0.05);
+
+}
+
+
+/* =========================================================
+   MESSAGES
+   ========================================================= */
+
+.messages {
+
+    height:
+        610px;
+
+    overflow-y:
+        auto;
+
+    padding:
+        30px;
+
+    scroll-behavior:
+        smooth;
+
+}
+
+
+/* MESSAGE */
+
+.msg {
+
+    max-width:
+        85%;
+
+    margin:
+        14px 0;
+
+    padding:
+        15px 17px;
+
+    border-radius:
+        15px;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.65;
+
+    animation:
+        messageIn 0.25s ease;
+
+}
+
+.msg.bot {
+
+    background:
+        rgba(255,255,255,0.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.065);
+
+    color:
+        var(--text);
+
+}
+
+.msg.user {
 
     margin-left:
         auto;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7251d9,
+            #5b52c8
+        );
+
+    color:
+        white;
 
     white-space:
         pre-wrap;
 
     box-shadow:
-        0 5px 18px rgba(0,0,0,0.12);
+        0 8px 25px
+        rgba(82,65,180,0.18);
+
 }
+
+
+/* =========================================================
+   AI CONTENT
+   ========================================================= */
 
 .ai-content {
 
-    width: 100%;
+    width:
+        100%;
 
-    line-height: 1.7;
+    line-height:
+        1.7;
+
 }
 
 .ai-paragraph {
@@ -435,37 +980,45 @@ main {
         0 0 14px;
 
     color:
-        var(--texto);
+        #e7e9ee;
 
     font-size:
         14px;
+
 }
 
 .ai-paragraph:last-child {
 
     margin-bottom:
         0;
+
 }
 
 .ai-content strong {
 
-    font-weight:
-        800;
-
     color:
-        #FFFFFF;
+        #ffffff;
+
+    font-weight:
+        750;
+
 }
 
 .ai-content em {
 
     color:
-        var(--texto-secundario);
+        #bfc4cf;
+
 }
 
 .ai-content code {
 
     background:
-        rgba(0,0,0,0.25);
+        rgba(0,0,0,0.35);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.06);
 
     padding:
         2px 6px;
@@ -479,27 +1032,33 @@ main {
 
     font-size:
         0.9em;
+
 }
+
+
+/* HEADINGS */
 
 .ai-heading {
 
-    font-weight:
-        900;
-
     color:
-        var(--texto);
+        #ffffff;
+
+    font-weight:
+        800;
+
 }
 
 .ai-heading-main {
 
     margin:
-        21px 0 12px;
+        22px 0 11px;
 
     font-size:
-        20px;
+        19px;
 
     line-height:
         1.3;
+
 }
 
 .ai-heading-sub {
@@ -508,77 +1067,57 @@ main {
         18px 0 9px;
 
     font-size:
-        16px;
+        15px;
 
-    line-height:
-        1.35;
 }
 
-.ai-heading:first-child {
 
-    margin-top:
-        0;
-}
+/* LISTS */
 
-.ai-list {
-
-    margin:
-        8px 0 17px;
-
-    padding-left:
-        25px;
-
-    color:
-        var(--texto-secundario);
-}
-
-.ai-list li {
-
-    margin:
-        7px 0;
-
-    padding-left:
-        4px;
-}
-
-.ai-list li::marker {
-
-    color:
-        var(--rojo);
-
-    font-size:
-        0.9em;
-}
-
+.ai-list,
 .ai-numbered-list {
 
     margin:
         9px 0 17px;
 
     padding-left:
-        25px;
+        24px;
 
     color:
-        var(--texto-secundario);
+        #bfc5d0;
+
 }
 
+.ai-list li,
 .ai-numbered-list li {
 
     margin:
-        7px 0;
+        6px 0;
 
     padding-left:
-        5px;
+        3px;
+
+}
+
+.ai-list li::marker {
+
+    color:
+        #a78bfa;
+
 }
 
 .ai-numbered-list li::marker {
 
     color:
-        var(--rojo);
+        #a78bfa;
 
     font-weight:
         800;
+
 }
+
+
+/* SEPARATOR */
 
 .ai-separator {
 
@@ -592,15 +1131,14 @@ main {
         linear-gradient(
             90deg,
             transparent,
-            rgba(
-                214,
-                224,
-                236,
-                0.25
-            ),
+            rgba(255,255,255,0.12),
             transparent
         );
+
 }
+
+
+/* TABLE */
 
 .ai-table {
 
@@ -610,76 +1148,45 @@ main {
     grid-template-columns:
         repeat(
             auto-fit,
-            minmax(220px, 1fr)
+            minmax(210px,1fr)
         );
 
     gap:
-        12px;
+        10px;
 
     margin:
-        16px 0 18px;
+        16px 0;
+
 }
 
 .ai-table-card {
 
-    background:
-        rgba(
-            0,
-            26,
-            58,
-            0.75
-        );
+    padding:
+        14px;
+
+    border-radius:
+        12px;
 
     border:
         1px solid
-        rgba(
-            214,
-            224,
-            236,
-            0.18
-        );
-
-    border-left:
-        3px solid
-        var(--rojo);
-
-    border-radius:
-        13px;
-
-    padding:
-        16px;
-
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease;
-}
-
-.ai-table-card:hover {
-
-    transform:
-        translateY(-2px);
+        rgba(255,255,255,0.07);
 
     background:
-        var(--azul-oscuro);
+        rgba(255,255,255,0.025);
 
-    border-color:
-        var(--rojo);
 }
 
 .ai-table-title {
 
     font-size:
-        13px;
+        12px;
 
     font-weight:
-        900;
-
-    color:
-        var(--texto);
+        800;
 
     margin-bottom:
         9px;
+
 }
 
 .ai-table-label {
@@ -687,62 +1194,99 @@ main {
     display:
         block;
 
+    color:
+        #9f8af2;
+
     font-size:
-        10px;
+        9px;
 
     font-weight:
         800;
-
-    color:
-        var(--rojo);
 
     text-transform:
         uppercase;
 
     letter-spacing:
-        0.8px;
+        .7px;
 
     margin-bottom:
-        4px;
+        3px;
+
 }
 
 .ai-table-value {
 
     color:
-        var(--texto-secundario);
+        var(--text-soft);
 
     font-size:
-        13px;
+        12px;
 
     line-height:
-        1.55;
+        1.5;
+
 }
 
-.ai-table-wide {
 
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(190px, 1fr)
-        );
+/* =========================================================
+   INPUT AREA
+   ========================================================= */
+
+.input-area {
+
+    padding:
+        15px;
+
+    border-top:
+        1px solid var(--border);
+
+    background:
+        rgba(255,255,255,0.012);
+
 }
 
-.input {
+.input-box {
 
     display:
         flex;
+
+    align-items:
+        flex-end;
 
     gap:
         9px;
 
     padding:
-        13px;
+        7px;
 
-    border-top:
-        1px solid var(--rojo);
+    background:
+        #0b0d12;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.09);
+
+    border-radius:
+        15px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
 }
 
-input {
+.input-box:focus-within {
+
+    border-color:
+        rgba(139,92,246,0.5);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(139,92,246,0.08);
+
+}
+
+#text {
 
     flex:
         1;
@@ -750,705 +1294,1194 @@ input {
     min-width:
         0;
 
-    padding:
-        14px 15px;
+    min-height:
+        42px;
 
-    border-radius:
-        12px;
+    max-height:
+        130px;
 
-    border:
-        1px solid var(--rojo);
-
-    outline:
+    resize:
         none;
 
+    padding:
+        10px 11px;
+
+    border:
+        0;
+
+    outline:
+        0;
+
     background:
-        var(--azul);
+        transparent;
 
     color:
-        var(--texto);
+        white;
+
+    font-family:
+        inherit;
 
     font-size:
-        15px;
+        14px;
+
 }
 
-input::placeholder {
+#text::placeholder {
 
     color:
-        var(--texto-secundario);
+        #646b78;
+
 }
 
-input:focus {
+.send-button {
 
-    box-shadow:
-        0 0 0 2px
-        rgba(
-            206,
-            17,
-            38,
-            0.25
-        );
-}
+    width:
+        42px;
 
-button {
+    height:
+        42px;
+
+    flex-shrink:
+        0;
 
     border:
         0;
 
     border-radius:
-        12px;
-
-    padding:
-        12px 19px;
+        11px;
 
     background:
-        var(--rojo);
+        linear-gradient(
+            135deg,
+            var(--accent),
+            var(--accent-2)
+        );
 
     color:
-        var(--texto);
+        white;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    cursor:
+        pointer;
+
+    font-size:
+        15px;
+
+    transition:
+        0.2s ease;
+
+}
+
+.send-button:hover {
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 7px 20px
+        rgba(99,102,241,0.25);
+
+}
+
+.send-button:disabled {
+
+    opacity:
+        0.5;
+
+    cursor:
+        not-allowed;
+
+    transform:
+        none;
+
+}
+
+.input-hint {
+
+    text-align:
+        center;
+
+    margin-top:
+        8px;
+
+    color:
+        #555c69;
+
+    font-size:
+        9px;
+
+}
+
+
+/* =========================================================
+   SUGGESTIONS
+   ========================================================= */
+
+.suggestions-title {
+
+    margin:
+        45px 0 14px;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        12px;
 
     font-weight:
-        800;
+        700;
+
+}
+
+.suggestions {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            1fr
+        );
+
+    gap:
+        10px;
+
+}
+
+.suggestion {
+
+    padding:
+        17px;
+
+    min-height:
+        105px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(255,255,255,0.018);
+
+    border-radius:
+        14px;
 
     cursor:
         pointer;
 
     transition:
-        background 0.2s ease,
-        opacity 0.2s ease;
+        0.2s ease;
+
 }
 
-button:hover {
+.suggestion:hover {
+
+    transform:
+        translateY(-3px);
 
     background:
-        var(--rojo-oscuro);
+        rgba(255,255,255,0.045);
+
+    border-color:
+        rgba(139,92,246,0.25);
+
 }
 
-button:disabled {
+.suggestion-icon {
 
-    opacity:
-        0.65;
-
-    cursor:
-        not-allowed;
-}
-
-.info {
-
-    margin-top:
-        25px;
-
-    padding:
-        24px;
-
-    border-radius:
+    font-size:
         17px;
 
-    background:
-        var(--azul-oscuro);
+    margin-bottom:
+        11px;
 
-    border:
-        1px solid var(--rojo);
 }
 
-.info h2 {
+.suggestion h3 {
 
-    margin-top:
+    margin:
+        0 0 5px;
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+}
+
+.suggestion p {
+
+    margin:
         0;
-}
-
-.info p {
 
     color:
-        var(--texto-secundario);
+        var(--text-muted);
+
+    font-size:
+        10px;
 
     line-height:
-        1.65;
+        1.5;
+
 }
 
-footer {
+
+/* =========================================================
+   FEATURES
+   ========================================================= */
+
+.features {
+
+    margin-top:
+        75px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:
+        12px;
+
+}
+
+.feature {
+
+    padding:
+        22px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        15px;
+
+    background:
+        rgba(255,255,255,0.012);
+
+}
+
+.feature-icon {
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    border-radius:
+        9px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        var(--accent-soft);
+
+    margin-bottom:
+        14px;
+
+}
+
+.feature h3 {
+
+    margin:
+        0 0 7px;
+
+    font-size:
+        13px;
+
+}
+
+.feature p {
+
+    margin:
+        0;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.6;
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+
+    padding:
+        35px 20px;
 
     text-align:
         center;
 
-    padding:
-        30px 15px;
+    border-top:
+        1px solid var(--border);
 
     color:
-        var(--texto-secundario);
+        #535a67;
 
-    border-top:
-        3px solid var(--rojo);
+    font-size:
+        10px;
+
 }
 
-@media (max-width: 700px) {
+.footer strong {
 
-    header {
+    color:
+        #7b8290;
 
-        padding:
-            15px 17px;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(15px);
+
     }
 
-    .header-quote {
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+@keyframes messageIn {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(5px);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+
+        width:
+            72px;
+
+        padding:
+            15px 10px;
+
+    }
+
+    .brand {
+
+        justify-content:
+            center;
+
+        padding-bottom:
+            20px;
+
+    }
+
+    .brand-name,
+    .brand-version,
+    .new-chat span,
+    .sidebar-label,
+    .sidebar-item span,
+    .plan-box {
 
         display:
             none;
+
     }
 
-    main {
+    .new-chat {
+
+        justify-content:
+            center;
+
+        padding:
+            12px;
+
+    }
+
+    .sidebar-item {
+
+        justify-content:
+            center;
+
+    }
+
+    .main {
+
+        margin-left:
+            72px;
+
+        width:
+            calc(100% - 72px);
+
+    }
+
+    .suggestions {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .sidebar {
+
+        display:
+            none;
+
+    }
+
+    .main {
+
+        margin-left:
+            0;
+
+        width:
+            100%;
+
+    }
+
+    .topbar {
+
+        padding:
+            0 15px;
+
+    }
+
+    .content {
 
         width:
             94%;
 
         padding-top:
-            18px;
+            38px;
+
     }
 
     .hero {
 
-        padding:
-            28px;
+        margin-bottom:
+            35px;
+
     }
 
     .hero h1 {
 
         font-size:
-            43px;
+            47px;
+
+        letter-spacing:
+            -2.5px;
+
+    }
+
+    .hero p {
+
+        font-size:
+            14px;
+
     }
 
     .messages {
 
         height:
-            500px;
+            520px;
 
         padding:
-            20px;
-    }
+            18px;
 
-    .input button {
-
-        padding:
-            12px;
     }
 
     .msg {
 
         max-width:
-            94%;
+            93%;
+
+        font-size:
+            13px;
+
     }
 
-    .ai-table {
+    .suggestions {
 
         grid-template-columns:
             1fr;
+
     }
 
-    .ai-heading-main {
+    .features {
+
+        grid-template-columns:
+            1fr;
+
+        margin-top:
+            50px;
+
+    }
+
+    .chat-actions {
+
+        display:
+            none;
+
+    }
+
+    .topbar-title {
 
         font-size:
-            18px;
+            11px;
+
     }
 
-    .ai-heading-sub {
+}
 
-        font-size:
-            15px;
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        transition-duration:
+            0.01ms !important;
+
     }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
 
-<header>
 
-<div>
+<div class="app">
 
-    <div class="logo">
-        🇩🇴 DomAI
+
+<!-- =====================================================
+     SIDEBAR
+     ===================================================== -->
+
+<aside class="sidebar">
+
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            D
+        </div>
+
+        <div>
+
+            <div class="brand-name">
+                DomAI
+            </div>
+
+            <div class="brand-version">
+                Intelligent platform
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="tag">
-        Inteligencia, educación y conocimiento dominicano
+
+    <button
+        class="new-chat"
+        onclick="newChat()"
+    >
+
+        <div class="new-chat-icon">
+            +
+        </div>
+
+        <span>
+            Nueva conversación
+        </span>
+
+    </button>
+
+
+    <div class="sidebar-section">
+
+        <div class="sidebar-label">
+            Plataforma
+        </div>
+
+        <div class="sidebar-item">
+
+            <span>⌂</span>
+
+            <span>
+                Inicio
+            </span>
+
+        </div>
+
+        <div
+            class="sidebar-item"
+            onclick="focusChat()"
+        >
+
+            <span>✦</span>
+
+            <span>
+                Conversación
+            </span>
+
+        </div>
+
+        <div class="sidebar-item">
+
+            <span>◷</span>
+
+            <span>
+                Historial
+            </span>
+
+        </div>
+
     </div>
 
-</div>
 
-<div class="header-quote">
+    <div class="sidebar-section">
 
-    “Conocer nuestra historia es comprender
-    quiénes somos.”
+        <div class="sidebar-label">
+            Herramientas
+        </div>
 
-</div>
+        <div class="sidebar-item">
 
-</header>
+            <span>⌕</span>
 
-<main>
+            <span>
+                Investigación
+            </span>
 
-<section class="hero">
+        </div>
 
-<div class="kicker">
-    Asistente educativo dominicano
-</div>
+        <div class="sidebar-item">
 
-<h1>
-    DomAI
-</h1>
+            <span>✧</span>
 
-<p>
+            <span>
+                Aprendizaje
+            </span>
 
-    Un asistente diseñado para ayudar a los jóvenes
-    dominicanos a estudiar, investigar y comprender
-    las Ciencias Sociales desde los conceptos más
-    básicos hasta temas avanzados.
+        </div>
 
-    <br><br>
+    </div>
 
-    Su conocimiento también abarca historia,
-    cultura, gastronomía, geografía, sociedad,
-    música, cine, literatura, patrimonio y
-    muchos otros aspectos de la República Dominicana.
 
-</p>
+    <div class="sidebar-bottom">
 
-</section>
+        <div class="plan-box">
 
-<section class="chat">
+            <div class="plan-title">
+                DomAI
+            </div>
 
-<div class="chat-head">
+            <div class="plan-text">
+                Tu espacio de inteligencia
+                artificial.
+            </div>
 
-<div class="chat-title">
-    🤖 DomAI · Asistente
-</div>
+            <button
+                class="plan-button"
+                onclick="focusChat()"
+            >
+                Explorar DomAI
+            </button>
 
-<div
-    id="chatStatus"
-    class="chat-status">
-    Versión conectada a IA
-</div>
+        </div>
 
-</div>
+    </div>
 
-<div id="messages" class="messages">
 
-<div class="msg bot">
+</aside>
 
-<div class="ai-content">
 
-<p class="ai-paragraph">
 
-    Bienvenido a DomAI. 🇩🇴
+<!-- =====================================================
+     MAIN
+     ===================================================== -->
 
-</p>
+<main class="main">
 
-<p class="ai-paragraph">
 
-    Soy un asistente educativo especializado
-    en República Dominicana.
+    <header class="topbar">
 
-</p>
+        <div class="topbar-title">
+            DomAI Workspace
+        </div>
 
-<p class="ai-paragraph">
+        <div class="topbar-right">
 
-    Mi prioridad es ayudarte a comprender
-    las Ciencias Sociales con profundidad.
+            <div class="status">
 
-</p>
+                <div class="status-dot"></div>
 
-<p class="ai-paragraph">
+                Sistema operativo
 
-    También podemos explorar:
+            </div>
 
-</p>
+        </div>
 
-<ul class="ai-list">
+    </header>
 
-<li>Historia</li>
-<li>Cultura</li>
-<li>Gastronomía</li>
-<li>Música</li>
-<li>Cine</li>
-<li>Literatura</li>
-<li>Geografía</li>
-<li>Sociedad</li>
-<li>Patrimonio</li>
-<li>Economía</li>
-<li>Ciudadanía</li>
-<li>Política</li>
-<li>Y muchos otros temas dominicanos.</li>
 
-</ul>
 
-<p class="ai-paragraph">
+    <div class="content">
 
-    Escribe cualquier pregunta para comenzar.
 
-</p>
+        <!-- =================================================
+             HERO
+             ================================================= -->
 
-</div>
+        <section class="hero">
 
-</div>
 
-</div>
+            <div class="hero-badge">
 
-<div class="input">
+                <span></span>
 
-<input
-id="text"
-autocomplete="off"
-placeholder="Pregunta a DomAI sobre República Dominicana..."
->
+                INTELIGENCIA ARTIFICIAL
 
-<button
-id="sendButton"
-onclick="send()">
-    Enviar
-</button>
+            </div>
 
-</div>
 
-</section>
+            <h1>
 
-<div class="section-title">
-    Áreas de conocimiento
-</div>
+                <span>
+                    Inteligencia
+                </span>
 
-<section class="grid">
+                que trabaja contigo.
 
-<div
-class="card"
-onclick="quick('Quiero estudiar Ciencias Sociales desde cero. Enséñame como un profesor y avanza progresivamente hasta temas más complejos.')"
->
+            </h1>
 
-<div class="card-number">
-01 · CIENCIAS SOCIALES
-</div>
 
-<h3>
-    Ciencias Sociales
-</h3>
+            <p>
 
-<p>
-    Historia, geografía, sociología,
-    antropología, economía, ciudadanía,
-    política y relaciones sociales.
-</p>
+                Pregunta, aprende, investiga y
+                descubre nuevas ideas con DomAI,
+                tu espacio personal de inteligencia
+                artificial.
 
-</div>
+            </p>
 
 
-<div
-class="card"
-onclick="quick('Enséñame la historia de República Dominicana de forma cronológica y profunda.')"
->
+        </section>
 
-<div class="card-number">
-02 · HISTORIA
-</div>
 
-<h3>
-    Historia Dominicana
-</h3>
 
-<p>
-    Desde los pueblos originarios,
-    la colonización y la independencia
-    hasta la República contemporánea.
-</p>
+        <!-- =================================================
+             CHAT
+             ================================================= -->
 
-</div>
+        <section
+            class="chat"
+            id="chat"
+        >
 
 
-<div
-class="card"
-onclick="quick('Quiero aprender profundamente sobre la cultura dominicana.')"
->
+            <div class="chat-head">
 
-<div class="card-number">
-03 · CULTURA
-</div>
 
-<h3>
-    Cultura Dominicana
-</h3>
+                <div class="chat-brand">
 
-<p>
-    Identidad, tradiciones, folclore,
-    arte, fiestas, patrimonio,
-    lenguaje y costumbres.
-</p>
+                    <div class="chat-avatar">
+                        D
+                    </div>
 
-</div>
+                    <div>
 
+                        <div class="chat-name">
+                            DomAI
+                        </div>
 
-<div
-class="card"
-onclick="quick('Enséñame la gastronomía dominicana, sus platos, ingredientes, historia e influencias.')"
->
+                        <div
+                            id="chatStatus"
+                            class="chat-sub"
+                        >
+                            Inteligencia artificial
+                        </div>
 
-<div class="card-number">
-04 · GASTRONOMÍA
-</div>
+                    </div>
 
-<h3>
-    Gastronomía
-</h3>
+                </div>
 
-<p>
-    Platos, ingredientes, técnicas,
-    regiones, historia e influencias
-    culturales.
-</p>
 
-</div>
+                <div class="chat-actions">
 
+                    <button
+                        class="icon-button"
+                        title="Nueva conversación"
+                        onclick="newChat()"
+                    >
+                        +
+                    </button>
 
-<div
-class="card"
-onclick="quick('Explícame la historia y evolución de la música dominicana.')"
->
+                    <button
+                        class="icon-button"
+                        title="Ir al inicio"
+                        onclick="scrollToTop()"
+                    >
+                        ↑
+                    </button>
 
-<div class="card-number">
-05 · MÚSICA
-</div>
+                </div>
 
-<h3>
-    Música Dominicana
-</h3>
 
-<p>
-    Merengue, bachata, dembow,
-    fusiones, artistas, géneros
-    e historia musical.
-</p>
+            </div>
 
-</div>
 
 
-<div
-class="card"
-onclick="quick('Háblame del cine dominicano y de la evolución de sus películas e industria.')"
->
+            <div
+                id="messages"
+                class="messages"
+            >
 
-<div class="card-number">
-06 · CINE
-</div>
 
-<h3>
-    Cine Dominicano
-</h3>
+                <div class="msg bot">
 
-<p>
-    Películas, directores, actores,
-    géneros, documentales e industria
-    cinematográfica.
-</p>
+                    <div class="ai-content">
 
-</div>
+                        <p class="ai-paragraph">
 
+                            Hola. Soy <strong>DomAI</strong>.
 
-<div
-class="card"
-onclick="quick('Enséñame la geografía de República Dominicana.')"
->
+                        </p>
 
-<div class="card-number">
-07 · GEOGRAFÍA
-</div>
+                        <p class="ai-paragraph">
 
-<h3>
-    Geografía
-</h3>
+                            Estoy aquí para ayudarte a
+                            comprender ideas, investigar
+                            temas y aprender de forma clara.
 
-<p>
-    Provincias, regiones, relieve,
-    clima, población, fronteras,
-    ciudades y territorio.
-</p>
+                        </p>
 
-</div>
+                        <p class="ai-paragraph">
 
+                            ¿Qué quieres descubrir hoy?
 
-<div
-class="card"
-onclick="quick('Quiero aprender sobre literatura dominicana.')"
->
+                        </p>
 
-<div class="card-number">
-08 · LITERATURA
-</div>
+                    </div>
 
-<h3>
-    Literatura
-</h3>
+                </div>
 
-<p>
-    Autores, obras, movimientos,
-    poesía, narrativa y pensamiento
-    dominicano.
-</p>
 
-</div>
+            </div>
 
 
-<div
-class="card"
-onclick="quick('Explícame cómo funciona la sociedad dominicana desde una perspectiva de Ciencias Sociales.')"
->
 
-<div class="card-number">
-09 · SOCIEDAD
-</div>
+            <!-- INPUT -->
 
-<h3>
-    Sociedad Dominicana
-</h3>
+            <div class="input-area">
 
-<p>
-    Población, identidad, cambios
-    sociales, juventud, educación,
-    desigualdad y desarrollo.
-</p>
 
-</div>
+                <div class="input-box">
 
 
-<div
-class="card"
-onclick="quick('Háblame del patrimonio histórico y cultural de República Dominicana.')"
->
+                    <textarea
+                        id="text"
+                        autocomplete="off"
+                        rows="1"
+                        placeholder="Pregunta cualquier cosa..."
+                    ></textarea>
 
-<div class="card-number">
-10 · PATRIMONIO
-</div>
 
-<h3>
-    Patrimonio
-</h3>
+                    <button
+                        id="sendButton"
+                        class="send-button"
+                        onclick="send()"
+                        title="Enviar"
+                    >
+                        ➜
+                    </button>
 
-<p>
-    Monumentos, lugares históricos,
-    patrimonio cultural y natural.
-</p>
 
-</div>
+                </div>
 
 
-<div
-class="card"
-onclick="quick('Llévame al año 1844 y explícame qué ocurría en República Dominicana y su contexto.')"
->
+                <div class="input-hint">
 
-<div class="card-number">
-11 · HISTORIA INTERACTIVA
-</div>
+                    DomAI puede cometer errores.
+                    Verifica información importante.
 
-<h3>
-    Máquina del Tiempo
-</h3>
+                </div>
 
-<p>
-    Viaja por años, períodos y
-    acontecimientos históricos.
-</p>
 
-</div>
+            </div>
 
 
-<div
-class="card"
-onclick="quick('Activa el modo profesor. Hazme una clase avanzada de Ciencias Sociales dominicanas.')"
->
+        </section>
 
-<div class="card-number">
-12 · MODO PROFESOR
-</div>
 
-<h3>
-    Profesor DomAI
-</h3>
 
-<p>
-    Clases, ejercicios, análisis,
-    debates, preguntas y preparación
-    académica.
-</p>
+        <!-- =================================================
+             SUGGESTIONS
+             ================================================= -->
 
-</div>
+        <div class="suggestions-title">
 
-</section>
+            Empieza con una idea
 
+        </div>
 
-<section class="info">
 
-<h2>
-    La misión de DomAI
-</h2>
+        <section class="suggestions">
 
-<p>
-DomAI está diseñado para convertirse en un
-asistente educativo de alto nivel para los
-jóvenes dominicanos.
-</p>
 
-<p>
-En Ciencias Sociales debe ser capaz de explicar
-conceptos desde el nivel introductorio hasta
-temas avanzados, relacionar acontecimientos,
-comparar procesos históricos, analizar causas
-y consecuencias y ayudar al estudiante a
-construir argumentos.
-</p>
+            <div
+                class="suggestion"
+                onclick="quick('Explícame la Revolución Francesa de forma clara y cronológica.')"
+            >
 
-<p>
-También debe enseñar a utilizar y analizar
-fuentes históricas y sociales, distinguir entre
-hechos, interpretaciones y opiniones, y fomentar
-el pensamiento crítico.
-</p>
+                <div class="suggestion-icon">
+                    ◈
+                </div>
 
-<p>
-Fuera de las Ciencias Sociales, DomAI tendrá
-un conocimiento amplio de la República Dominicana:
-gastronomía, música, cine, literatura, arte,
-tradiciones, patrimonio, geografía, sociedad,
-deportes, expresiones populares y otros aspectos
-de la vida dominicana.
-</p>
+                <h3>
+                    Aprende algo
+                </h3>
 
-<p>
-Cuando esté conectado a una fuente de información
-actualizada, deberá verificar la información
-reciente y evitar presentar rumores o información
-no confirmada como hechos.
-</p>
+                <p>
+                    Comprende un tema paso a paso.
+                </p>
 
-</section>
+            </div>
+
+
+            <div
+                class="suggestion"
+                onclick="quick('Enséñame la historia de República Dominicana de forma cronológica.')"
+            >
+
+                <div class="suggestion-icon">
+                    ◉
+                </div>
+
+                <h3>
+                    Explora historia
+                </h3>
+
+                <p>
+                    Viaja por acontecimientos y épocas.
+                </p>
+
+            </div>
+
+
+            <div
+                class="suggestion"
+                onclick="quick('Quiero aprender sobre la cultura dominicana. Explícamela por categorías.')"
+            >
+
+                <div class="suggestion-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    Descubre
+                </h3>
+
+                <p>
+                    Cultura, sociedad y conocimiento.
+                </p>
+
+            </div>
+
+
+            <div
+                class="suggestion"
+                onclick="quick('Activa el modo profesor y enséñame un tema avanzado de Ciencias Sociales.')"
+            >
+
+                <div class="suggestion-icon">
+                    ◆
+                </div>
+
+                <h3>
+                    Modo profesor
+                </h3>
+
+                <p>
+                    Convierte cualquier tema en una clase.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             FEATURES
+             ================================================= -->
+
+        <section class="features">
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    Conversaciones inteligentes
+                </h3>
+
+                <p>
+                    Mantén el contexto de la conversación
+                    para obtener respuestas más útiles.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ◈
+                </div>
+
+                <h3>
+                    Pensado para aprender
+                </h3>
+
+                <p>
+                    Explicaciones claras adaptadas al
+                    nivel y contexto de cada pregunta.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ⌁
+                </div>
+
+                <h3>
+                    Información actualizada
+                </h3>
+
+                <p>
+                    Cuando es necesario, DomAI puede
+                    utilizar información obtenida mediante
+                    búsqueda web.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+    </div>
+
+
+
+    <footer class="footer">
+
+        <strong>DomAI</strong>
+
+        · Inteligencia que trabaja contigo.
+
+        <br><br>
+
+        Plataforma digital independiente.
+
+    </footer>
+
 
 </main>
 
-<footer>
+</div>
 
-🇩🇴
-
-<strong>
-    DomAI
-</strong>
-
-<br><br>
-
-Inteligencia para conocer,
-comprender y valorar la República Dominicana.
-
-</footer>
 
 
 <script>
 
 /* =========================================================
-   ELEMENTOS PRINCIPALES
+   ELEMENTOS
    ========================================================= */
 
 const messages =
@@ -1486,11 +2519,12 @@ function escapeHTML(text) {
         text;
 
     return div.innerHTML;
+
 }
 
 
 /* =========================================================
-   FORMATEAR TEXTO INTERNO
+   FORMATO INLINE
    ========================================================= */
 
 function formatInline(text) {
@@ -1498,11 +2532,13 @@ function formatInline(text) {
     let safe =
         escapeHTML(text);
 
+
     safe =
         safe.replace(
             /\*\*(.*?)\*\*/g,
             "<strong>$1</strong>"
         );
+
 
     safe =
         safe.replace(
@@ -1510,13 +2546,16 @@ function formatInline(text) {
             "<em>$1</em>"
         );
 
+
     safe =
         safe.replace(
             /`([^`]+)`/g,
             "<code>$1</code>"
         );
 
+
     return safe;
+
 }
 
 
@@ -1528,6 +2567,7 @@ function isTableSeparator(line) {
 
     return /^\s*\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)+\|?\s*$/
         .test(line);
+
 }
 
 
@@ -1536,11 +2576,14 @@ function parseTableRow(line) {
     let clean =
         line.trim();
 
+
     if (clean.startsWith("|")) {
 
         clean =
             clean.substring(1);
+
     }
+
 
     if (clean.endsWith("|")) {
 
@@ -1549,18 +2592,21 @@ function parseTableRow(line) {
                 0,
                 clean.length - 1
             );
+
     }
+
 
     return clean
         .split("|")
         .map(
             cell => cell.trim()
         );
+
 }
 
 
 /* =========================================================
-   CREAR TABLA VISUAL
+   TABLA VISUAL
    ========================================================= */
 
 function createVisualTable(
@@ -1574,12 +2620,6 @@ function createVisualTable(
     table.className =
         "ai-table";
 
-    if (headers.length > 2) {
-
-        table.classList.add(
-            "ai-table-wide"
-        );
-    }
 
     rows.forEach(row => {
 
@@ -1587,11 +2627,13 @@ function createVisualTable(
             return;
         }
 
+
         const card =
             document.createElement("div");
 
         card.className =
             "ai-table-card";
+
 
         const title =
             document.createElement("div");
@@ -1605,6 +2647,7 @@ function createVisualTable(
             );
 
         card.appendChild(title);
+
 
         for (
             let i = 1;
@@ -1624,6 +2667,7 @@ function createVisualTable(
 
             card.appendChild(label);
 
+
             const value =
                 document.createElement("div");
 
@@ -1636,17 +2680,22 @@ function createVisualTable(
                 );
 
             card.appendChild(value);
+
         }
 
+
         table.appendChild(card);
+
     });
 
+
     return table;
+
 }
 
 
 /* =========================================================
-   RENDERIZAR TEXTO NORMAL
+   RENDER TEXTO
    ========================================================= */
 
 function renderTextBlock(text) {
@@ -1654,8 +2703,10 @@ function renderTextBlock(text) {
     const fragment =
         document.createDocumentFragment();
 
+
     const lines =
         text.split("\n");
+
 
     let list = null;
 
@@ -1669,7 +2720,9 @@ function renderTextBlock(text) {
             fragment.appendChild(list);
 
             list = null;
+
         }
+
 
         if (orderedList) {
 
@@ -1678,7 +2731,9 @@ function renderTextBlock(text) {
             );
 
             orderedList = null;
+
         }
+
     }
 
 
@@ -1696,6 +2751,7 @@ function renderTextBlock(text) {
         fragment.appendChild(
             paragraph
         );
+
     }
 
 
@@ -1704,11 +2760,13 @@ function renderTextBlock(text) {
         let line =
             rawLine.trim();
 
+
         if (!line) {
 
             closeLists();
 
             return;
+
         }
 
 
@@ -1719,6 +2777,7 @@ function renderTextBlock(text) {
         ) {
 
             closeLists();
+
 
             const separator =
                 document.createElement("div");
@@ -1731,12 +2790,14 @@ function renderTextBlock(text) {
             );
 
             return;
+
         }
 
 
         if (/^###\s+/.test(line)) {
 
             closeLists();
+
 
             const heading =
                 document.createElement("h4");
@@ -1757,12 +2818,14 @@ function renderTextBlock(text) {
             );
 
             return;
+
         }
 
 
         if (/^##\s+/.test(line)) {
 
             closeLists();
+
 
             const heading =
                 document.createElement("h3");
@@ -1783,12 +2846,14 @@ function renderTextBlock(text) {
             );
 
             return;
+
         }
 
 
         if (/^#\s+/.test(line)) {
 
             closeLists();
+
 
             const heading =
                 document.createElement("h3");
@@ -1809,6 +2874,7 @@ function renderTextBlock(text) {
             );
 
             return;
+
         }
 
 
@@ -1821,7 +2887,9 @@ function renderTextBlock(text) {
                 );
 
                 orderedList = null;
+
             }
+
 
             if (!list) {
 
@@ -1830,7 +2898,9 @@ function renderTextBlock(text) {
 
                 list.className =
                     "ai-list";
+
             }
+
 
             const item =
                 document.createElement("li");
@@ -1846,6 +2916,7 @@ function renderTextBlock(text) {
             list.appendChild(item);
 
             return;
+
         }
 
 
@@ -1858,7 +2929,9 @@ function renderTextBlock(text) {
                 );
 
                 list = null;
+
             }
+
 
             if (!orderedList) {
 
@@ -1867,7 +2940,9 @@ function renderTextBlock(text) {
 
                 orderedList.className =
                     "ai-numbered-list";
+
             }
+
 
             const item =
                 document.createElement("li");
@@ -1883,6 +2958,7 @@ function renderTextBlock(text) {
             orderedList.appendChild(item);
 
             return;
+
         }
 
 
@@ -1895,12 +2971,14 @@ function renderTextBlock(text) {
 
     closeLists();
 
+
     return fragment;
+
 }
 
 
 /* =========================================================
-   RENDERIZAR RESPUESTA
+   RENDER AI
    ========================================================= */
 
 function renderAIResponse(text) {
@@ -1910,6 +2988,7 @@ function renderAIResponse(text) {
 
     container.className =
         "ai-content";
+
 
     text =
         String(text || "")
@@ -1958,6 +3037,7 @@ function renderAIResponse(text) {
     const lines =
         text.split("\n");
 
+
     let textBuffer = [];
 
 
@@ -1967,21 +3047,24 @@ function renderAIResponse(text) {
             return;
         }
 
+
         const content =
             textBuffer
                 .join("\n")
                 .trim();
 
+
         if (content) {
 
             container.appendChild(
-                renderTextBlock(
-                    content
-                )
+                renderTextBlock(content)
             );
+
         }
 
+
         textBuffer = [];
+
     }
 
 
@@ -2005,12 +3088,15 @@ function renderAIResponse(text) {
 
             flushText();
 
+
             const headers =
                 parseTableRow(
                     current
                 );
 
+
             const rows = [];
+
 
             i += 2;
 
@@ -2026,35 +3112,40 @@ function renderAIResponse(text) {
                         lines[i]
                     );
 
+
                 if (row.length > 0) {
 
                     rows.push(row);
+
                 }
 
+
                 i++;
+
             }
 
 
             if (rows.length > 0) {
 
-                const visualTable =
+                container.appendChild(
                     createVisualTable(
                         headers,
                         rows
-                    );
-
-                container.appendChild(
-                    visualTable
+                    )
                 );
+
             }
 
+
             continue;
+
         }
 
 
         textBuffer.push(current);
 
         i++;
+
     }
 
 
@@ -2062,11 +3153,12 @@ function renderAIResponse(text) {
 
 
     return container;
+
 }
 
 
 /* =========================================================
-   AGREGAR MENSAJE
+   ADD MESSAGE
    ========================================================= */
 
 function add(text, who) {
@@ -2088,6 +3180,7 @@ function add(text, who) {
 
         d.textContent =
             text;
+
     }
 
 
@@ -2099,11 +3192,12 @@ function add(text, who) {
 
 
     return d;
+
 }
 
 
 /* =========================================================
-   BOTONES RÁPIDOS
+   QUICK
    ========================================================= */
 
 function quick(text) {
@@ -2112,15 +3206,18 @@ function quick(text) {
         return;
     }
 
+
     input.value =
         text;
 
+
     send();
+
 }
 
 
 /* =========================================================
-   EXTRAER RESPUESTA JSON
+   EXTRACT RESPONSE
    ========================================================= */
 
 function extractResponse(data) {
@@ -2134,6 +3231,7 @@ function extractResponse(data) {
     ) {
 
         return content.trim();
+
     }
 
 
@@ -2150,6 +3248,7 @@ function extractResponse(data) {
                     ) {
 
                         return part;
+
                     }
 
 
@@ -2159,6 +3258,7 @@ function extractResponse(data) {
                     ) {
 
                         return part.text;
+
                     }
 
 
@@ -2168,31 +3268,34 @@ function extractResponse(data) {
                     ) {
 
                         return part.content;
+
                     }
 
 
                     return "";
+
                 })
                 .filter(Boolean);
 
 
-        if (
-            textParts.length > 0
-        ) {
+        if (textParts.length > 0) {
 
             return textParts
                 .join("\n")
                 .trim();
+
         }
+
     }
 
 
     return "";
+
 }
 
 
 /* =========================================================
-   LIMPIAR RAZONAMIENTO
+   CLEAN AI
    ========================================================= */
 
 function cleanAIText(text) {
@@ -2227,6 +3330,7 @@ function cleanAIText(text) {
         "Formulate Response:",
 
         "Draft Response:"
+
     ];
 
 
@@ -2247,16 +3351,19 @@ function cleanAIText(text) {
                         marker.length
                     )
                     .trim();
+
         }
+
     }
 
 
     return content.trim();
+
 }
 
 
 /* =========================================================
-   MENSAJE DE CARGA
+   LOADING
    ========================================================= */
 
 function createLoadingMessage() {
@@ -2272,8 +3379,20 @@ function createLoadingMessage() {
 
         <div class="ai-content">
 
-            <p class="ai-paragraph">
-                DomAI está pensando...
+            <p
+                class="ai-paragraph"
+                style="color:#8f97a5;"
+            >
+
+                <span
+                    style="
+                    display:inline-block;
+                    animation:pulse 1.2s infinite;
+                    "
+                >
+                    DomAI está pensando...
+                </span>
+
             </p>
 
         </div>
@@ -2289,11 +3408,12 @@ function createLoadingMessage() {
 
 
     return d;
+
 }
 
 
 /* =========================================================
-   ACTUALIZAR MENSAJE DEL BOT
+   UPDATE RESPONSE
    ========================================================= */
 
 function updateStreamingMessage(
@@ -2310,19 +3430,18 @@ function updateStreamingMessage(
 
 
     element.appendChild(
-        renderAIResponse(
-            content
-        )
+        renderAIResponse(content)
     );
 
 
     messages.scrollTop =
         messages.scrollHeight;
+
 }
 
 
 /* =========================================================
-   PROCESAR STREAMING SSE
+   STREAM
    ========================================================= */
 
 async function processStream(
@@ -2335,6 +3454,7 @@ async function processStream(
         throw new Error(
             "El servidor no devolvió un stream."
         );
+
     }
 
 
@@ -2346,11 +3466,9 @@ async function processStream(
         new TextDecoder("utf-8");
 
 
-    let buffer =
-        "";
+    let buffer = "";
 
-    let fullText =
-        "";
+    let fullText = "";
 
 
     while (true) {
@@ -2398,12 +3516,11 @@ async function processStream(
 
 
                 if (
-                    !trimmed.startsWith(
-                        "data:"
-                    )
+                    !trimmed.startsWith("data:")
                 ) {
 
                     continue;
+
                 }
 
 
@@ -2419,6 +3536,7 @@ async function processStream(
                 ) {
 
                     continue;
+
                 }
 
 
@@ -2433,13 +3551,11 @@ async function processStream(
                     const delta =
                         data
                             ?.choices?.[0]
-                            ?.delta
-                            ?.content;
+                            ?.delta?.content;
 
 
                     if (
-                        typeof delta ===
-                        "string" &&
+                        typeof delta === "string" &&
                         delta.length > 0
                     ) {
 
@@ -2451,6 +3567,7 @@ async function processStream(
                             messageElement,
                             fullText
                         );
+
                     }
 
 
@@ -2460,20 +3577,25 @@ async function processStream(
                         "Chunk no JSON:",
                         payload
                     );
+
                 }
+
             }
+
         }
+
     }
 
 
     return cleanAIText(
         fullText
     );
+
 }
 
 
 /* =========================================================
-   ENVIAR MENSAJE
+   SEND
    ========================================================= */
 
 async function send() {
@@ -2505,16 +3627,12 @@ async function send() {
 
 
     sendButton.textContent =
-        "Enviando...";
+        "…";
 
 
     chatStatus.textContent =
-        "DomAI está procesando...";
+        "Procesando respuesta...";
 
-
-    // =====================================================
-    // MOSTRAR PREGUNTA
-    // =====================================================
 
     add(
         q,
@@ -2526,13 +3644,8 @@ async function send() {
         "";
 
 
-    // =====================================================
-    // GUARDAR HISTORIAL ANTERIOR
-    //
-    // IMPORTANTE:
-    // El Worker nuevo ya agrega el mensaje actual.
-    // Por eso NO lo enviamos duplicado.
-    // =====================================================
+    autoResize();
+
 
     const previousConversation =
         conversation.slice(-4);
@@ -2545,12 +3658,9 @@ async function send() {
 
         content:
             q
+
     });
 
-
-    // =====================================================
-    // CREAR MENSAJE DEL BOT
-    // =====================================================
 
     const botMessage =
         createLoadingMessage();
@@ -2561,10 +3671,6 @@ async function send() {
 
 
     try {
-
-        // =================================================
-        // SOLICITUD AL WORKER
-        // =================================================
 
         const response =
             await fetch(
@@ -2580,6 +3686,7 @@ async function send() {
 
                         "Content-Type":
                             "application/json"
+
                     },
 
                     body:
@@ -2590,8 +3697,11 @@ async function send() {
 
                             conversation:
                                 previousConversation
+
                         })
+
                 }
+
             );
 
 
@@ -2607,9 +3717,7 @@ async function send() {
             ) || "";
 
 
-        // =================================================
-        // STREAMING
-        // =================================================
+        /* STREAM */
 
         if (
             contentType.includes(
@@ -2630,6 +3738,7 @@ async function send() {
                     respuesta ||
                     "Error del servidor"
                 );
+
             }
 
 
@@ -2638,6 +3747,7 @@ async function send() {
                 throw new Error(
                     "DomAI no devolvió una respuesta."
                 );
+
             }
 
 
@@ -2648,11 +3758,12 @@ async function send() {
 
                 content:
                     respuesta
+
             });
 
 
             console.log(
-                "Respuesta completada en:",
+                "Respuesta:",
                 Date.now() -
                 requestStart,
                 "ms"
@@ -2660,12 +3771,11 @@ async function send() {
 
 
             return;
+
         }
 
 
-        // =================================================
-        // RESPUESTA JSON NORMAL
-        // =================================================
+        /* JSON NORMAL */
 
         const data =
             await response.json();
@@ -2689,7 +3799,9 @@ async function send() {
                 data?.error ||
 
                 "Error del servidor"
+
             );
+
         }
 
 
@@ -2702,12 +3814,9 @@ async function send() {
             throw new Error(
                 "DomAI no devolvió una respuesta de texto."
             );
+
         }
 
-
-        // =================================================
-        // MOSTRAR RESPUESTA
-        // =================================================
 
         updateStreamingMessage(
             botMessage,
@@ -2722,11 +3831,12 @@ async function send() {
 
             content:
                 respuesta
+
         });
 
 
         console.log(
-            "Respuesta completada en:",
+            "Respuesta:",
             Date.now() -
             requestStart,
             "ms"
@@ -2747,7 +3857,15 @@ async function send() {
 
                 <p class="ai-paragraph">
 
-                    Error al conectar con DomAI:
+                    No pude completar la respuesta.
+
+                </p>
+
+                <p
+                    class="ai-paragraph"
+                    style="color:#777f8d;font-size:12px;"
+                >
+
                     ${escapeHTML(
                         error.message ||
                         "Error desconocido"
@@ -2758,7 +3876,6 @@ async function send() {
             </div>
 
         `;
-
 
     } finally {
 
@@ -2775,16 +3892,139 @@ async function send() {
 
 
         sendButton.textContent =
-            "Enviar";
+            "➜";
 
 
         chatStatus.textContent =
-            "Versión conectada a IA";
+            "Inteligencia artificial";
 
 
         input.focus();
+
     }
+
 }
+
+
+/* =========================================================
+   NUEVA CONVERSACIÓN
+   ========================================================= */
+
+function newChat() {
+
+    if (isGenerating) {
+        return;
+    }
+
+
+    conversation = [];
+
+
+    messages.innerHTML = `
+
+        <div class="msg bot">
+
+            <div class="ai-content">
+
+                <p class="ai-paragraph">
+
+                    Hola. Soy <strong>DomAI</strong>.
+
+                </p>
+
+                <p class="ai-paragraph">
+
+                    Nueva conversación iniciada.
+
+                </p>
+
+                <p class="ai-paragraph">
+
+                    ¿Qué quieres descubrir?
+
+                </p>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    input.value =
+        "";
+
+
+    autoResize();
+
+
+    input.focus();
+
+}
+
+
+/* =========================================================
+   FOCUS CHAT
+   ========================================================= */
+
+function focusChat() {
+
+    document
+        .getElementById("chat")
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+
+    setTimeout(
+        () => input.focus(),
+        500
+    );
+
+}
+
+
+/* =========================================================
+   TOP
+   ========================================================= */
+
+function scrollToTop() {
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+
+/* =========================================================
+   AUTO RESIZE
+   ========================================================= */
+
+function autoResize() {
+
+    input.style.height =
+        "auto";
+
+
+    input.style.height =
+        Math.min(
+            input.scrollHeight,
+            130
+        ) + "px";
+
+}
+
+
+input.addEventListener(
+    "input",
+    autoResize
+);
 
 
 /* =========================================================
@@ -2803,9 +4043,44 @@ input.addEventListener(
             event.preventDefault();
 
             send();
+
         }
+
     }
 );
+
+
+/* =========================================================
+   ANIMATION EXTRA
+   ========================================================= */
+
+const style =
+    document.createElement("style");
+
+style.textContent = `
+
+@keyframes pulse {
+
+    0%,100% {
+        opacity: .45;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+`;
+
+document.head.appendChild(style);
+
+
+/* =========================================================
+   INICIO
+   ========================================================= */
+
+input.focus();
 
 </script>
 
