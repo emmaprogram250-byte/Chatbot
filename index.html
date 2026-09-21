@@ -356,7 +356,6 @@ footer {
 
 <header>
 
-```
 <div>
 
     <div class="logo">
@@ -373,7 +372,6 @@ footer {
     “Conocer nuestra historia es comprender
     quiénes somos.”
 </div>
-```
 
 </header>
 
@@ -381,7 +379,6 @@ footer {
 
 <section class="hero">
 
-```
 <div class="kicker">
     Asistente educativo dominicano
 </div>
@@ -403,7 +400,6 @@ footer {
     música, cine, literatura, patrimonio y
     muchos otros aspectos de la República Dominicana.
 </p>
-```
 
 </section>
 
@@ -411,15 +407,13 @@ footer {
 
 <div class="chat-head">
 
-```
 <div class="chat-title">
     🤖 DomAI · Asistente
 </div>
 
 <div class="chat-status">
-    Versión local de demostración
+    Versión conectada a IA
 </div>
-```
 
 </div>
 
@@ -463,7 +457,6 @@ Escribe cualquier pregunta para comenzar.
 id="text"
 placeholder="Pregunta a DomAI sobre República Dominicana..."
 onkeydown="if(event.key === 'Enter') send()"
-
 >
 
 <button onclick="send()">
@@ -782,7 +775,6 @@ no confirmada como hechos.
 
 <footer>
 
-```
 🇩🇴
 
 <strong>
@@ -793,7 +785,6 @@ no confirmada como hechos.
 
 Inteligencia para conocer,
 comprender y valorar la República Dominicana.
-```
 
 </footer>
 
@@ -805,7 +796,12 @@ document.getElementById("messages");
 const input =
 document.getElementById("text");
 
-    let conversation = [];
+let conversation = [];
+
+
+/* =========================================================
+   MOSTRAR MENSAJE
+   ========================================================= */
 
 function add(text, who) {
 
@@ -825,330 +821,65 @@ function add(text, who) {
 }
 
 
+/* =========================================================
+   BOTONES RÁPIDOS
+   ========================================================= */
+
 function quick(text) {
 
-    input.value =
-    text;
+    input.value = text;
 
     send();
 }
 
 
-function answer(q) {
+/* =========================================================
+   EXTRAER RESPUESTA DEL MODELO
+   ========================================================= */
 
-    const s =
-    q.toLowerCase();
+function extractResponse(data) {
 
-    if (
-        s.includes("ciencias sociales") ||
-        s.includes("sociales")
-    ) {
+    const content =
+        data?.choices?.[0]?.message?.content;
 
-        return `DOMAI · CIENCIAS SOCIALES
-
-Las Ciencias Sociales estudian al ser humano
-como parte de la sociedad.
-
-Podemos estudiar:
-
-• Historia
-• Geografía
-• Sociología
-• Antropología
-• Economía
-• Ciencia política
-• Ciudadanía
-• Relaciones internacionales
-• Demografía
-• Cultura
-• Desarrollo social
-
-También puedo ayudarte a analizar:
-
-• Causas y consecuencias
-• Procesos históricos
-• Fuentes primarias y secundarias
-• Mapas
-• Estadísticas
-• Argumentos
-• Problemas sociales
-• Diferentes interpretaciones
-
-La futura versión conectada a IA podrá
-adaptar la explicación desde nivel básico
-hasta avanzado.`;
-
+    if (typeof content === "string") {
+        return content.trim();
     }
 
-    if (
-        s.includes("1844") ||
-        s.includes("independencia")
-    ) {
+    if (Array.isArray(content)) {
 
-        return `🇩🇴 INDEPENDENCIA DOMINICANA · 1844
+        const textParts = content
+            .map(part => {
 
-El 27 de febrero de 1844 se proclamó
-la Independencia Dominicana.
+                if (typeof part === "string") {
+                    return part;
+                }
 
-Entre las figuras centrales estuvieron:
+                if (
+                    part &&
+                    typeof part.text === "string"
+                ) {
+                    return part.text;
+                }
 
-• Juan Pablo Duarte
-• Francisco del Rosario Sánchez
-• Matías Ramón Mella
+                if (
+                    part &&
+                    typeof part.content === "string"
+                ) {
+                    return part.content;
+                }
 
-Pero para comprender 1844 de verdad,
-no basta con memorizar una fecha.
+                return "";
 
-Hay que estudiar:
+            })
+            .filter(Boolean);
 
-1. Los antecedentes.
-2. La situación política de la isla.
-3. El contexto internacional.
-4. La ocupación haitiana.
-5. El movimiento de La Trinitaria.
-6. Los acontecimientos de febrero.
-7. La formación del nuevo Estado.
-8. Las consecuencias posteriores.
-
-Si quieres, podemos estudiarlo como
-una clase completa de Ciencias Sociales.`;
-
+        if (textParts.length > 0) {
+            return textParts.join("\n").trim();
+        }
     }
 
-    if (s.includes("cultura")) {
-
-        return `CULTURA DOMINICANA
-
-La cultura dominicana es el resultado de
-procesos históricos y de múltiples influencias.
-
-Podemos estudiar:
-
-• Tradiciones
-• Folclore
-• Carnaval
-• Música
-• Danza
-• Arte
-• Literatura
-• Religiosidad popular
-• Lenguaje
-• Costumbres
-• Identidad
-• Patrimonio
-• Influencias indígenas
-• Influencias africanas
-• Influencias europeas
-• Influencias caribeñas
-
-También podemos estudiar cómo la cultura
-ha cambiado con el paso del tiempo.`;
-
-    }
-
-    if (
-        s.includes("gastronomía") ||
-        s.includes("gastronomia") ||
-        s.includes("comida")
-    ) {
-
-        return `GASTRONOMÍA DOMINICANA
-
-La gastronomía puede estudiarse no solo
-como comida, sino también como historia
-y cultura.
-
-Podemos analizar:
-
-• Mangú
-• Sancocho
-• La bandera
-• Moro
-• Habichuelas
-• Tostones
-• Pasteles en hoja
-• Dulces tradicionales
-• Bebidas
-• Ingredientes
-• Técnicas culinarias
-• Diferencias regionales
-• Influencias históricas
-
-También podemos investigar de dónde vienen
-determinados alimentos y cómo fueron
-transformándose dentro de la sociedad
-dominicana.`;
-
-    }
-
-    if (
-        s.includes("música") ||
-        s.includes("musica")
-    ) {
-
-        return `MÚSICA DOMINICANA
-
-DomAI puede estudiar la música dominicana
-desde una perspectiva histórica y cultural.
-
-Entre los temas:
-
-• Merengue
-• Bachata
-• Dembow
-• Música típica
-• Fusiones
-• Artistas
-• Evolución de los géneros
-• Industria musical
-• Influencia social
-• Identidad cultural
-
-También podemos analizar cómo diferentes
-géneros reflejan cambios en la sociedad.`;
-
-    }
-
-    if (
-        s.includes("película") ||
-        s.includes("pelicula") ||
-        s.includes("cine")
-    ) {
-
-        return `CINE DOMINICANO
-
-El cine dominicano puede estudiarse desde
-la cultura, la historia y la sociedad.
-
-Podemos analizar:
-
-• Películas
-• Directores
-• Actores
-• Géneros
-• Documentales
-• Industria cinematográfica
-• Evolución histórica
-• Representación de la sociedad
-• Temas sociales
-• Influencia cultural
-
-Para estrenos y datos actuales será necesario
-conectar DomAI a fuentes actualizadas.`;
-
-    }
-
-    if (s.includes("historia")) {
-
-        return `HISTORIA DOMINICANA
-
-Podemos estudiar la historia dominicana
-como un proceso continuo.
-
-Algunos grandes bloques:
-
-1. Pueblos originarios.
-2. Llegada europea.
-3. Colonización.
-4. Santo Domingo colonial.
-5. Transformaciones de la isla.
-6. Ocupación haitiana.
-7. Independencia de 1844.
-8. Primera República.
-9. Restauración.
-10. Segunda República.
-11. Intervenciones extranjeras.
-12. Era de Trujillo.
-13. Guerra de Abril de 1965.
-14. Segunda mitad del siglo XX.
-15. República Dominicana contemporánea.
-
-También podemos estudiar personajes,
-fuentes, causas, consecuencias y diferentes
-interpretaciones históricas.`;
-
-    }
-
-    if (s.includes("geografía") || s.includes("geografia")) {
-
-        return `GEOGRAFÍA DOMINICANA
-
-Podemos estudiar:
-
-• Ubicación
-• Regiones
-• Provincias
-• Municipios
-• Relieve
-• Cordilleras
-• Ríos
-• Lagos
-• Costas
-• Clima
-• Población
-• Fronteras
-• Actividades económicas
-• Distribución territorial
-
-También podemos relacionar la geografía
-con la historia y la economía.`;
-
-    }
-
-    if (s.includes("quiz")) {
-
-        return `MODO PROFESOR · QUIZ
-
-Pregunta:
-
-¿Por qué la Independencia Dominicana
-de 1844 fue importante para la formación
-del Estado dominicano?
-
-Intenta responder con tus propias palabras.
-
-Después puedo:
-
-• Evaluar tu respuesta.
-• Señalar fortalezas.
-• Explicar errores.
-• Darte una respuesta modelo.
-• Hacerte una pregunta más avanzada.`;
-
-    }
-
-    return `DOMAI
-
-He recibido tu pregunta.
-
-Actualmente estás utilizando la versión
-local de demostración.
-
-DomAI está diseñado para convertirse en
-un asistente especializado en:
-
-• Ciencias Sociales
-• Historia dominicana
-• Cultura
-• Gastronomía
-• Música
-• Cine
-• Literatura
-• Geografía
-• Sociedad
-• Patrimonio
-• Economía
-• Ciudadanía
-• Política
-
-El siguiente paso será conectar este
-chat con un modelo de IA real.
-
-Cuando hagamos esa conexión, estas áreas
-se convertirán en instrucciones permanentes
-del asistente y podrá responder preguntas
-mucho más abiertas y complejas.`;
-
+    return "";
 }
 
 
@@ -1158,10 +889,12 @@ mucho más abiertas y complejas.`;
 
 function send() {
 
-    const q = input.value.trim();
+    const q =
+        input.value.trim();
 
-    if (!q)
+    if (!q) {
         return;
+    }
 
     add(q, "user");
 
@@ -1172,24 +905,39 @@ function send() {
         content: q
     });
 
-    fetch("https://rapid-poetry-6a90domai-backend.emmaprogram250.workers.dev/", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            message: q,
-            conversation: conversation
-        })
-    })
+    fetch(
+        "https://rapid-poetry-6a90domai-backend.emmaprogram250.workers.dev/",
+        {
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                message: q,
+                conversation: conversation
+            })
+        }
+    )
+
     .then(async response => {
 
-        const data = await response.json();
+        const data =
+            await response.json();
 
-        console.log("Worker status:", response.status);
-        console.log("Worker response:", data);
+        console.log(
+            "Worker status:",
+            response.status
+        );
+
+        console.log(
+            "Worker response:",
+            data
+        );
 
         if (!response.ok) {
+
             throw new Error(
                 data.details?.error?.message ||
                 data.error ||
@@ -1200,14 +948,28 @@ function send() {
         return data;
 
     })
+
     .then(data => {
 
         const respuesta =
-            data.choices?.[0]?.message?.content ||
-            data.error ||
-            "No recibí una respuesta válida de DomAI.";
+            extractResponse(data);
 
-        add(respuesta, "bot");
+        if (!respuesta) {
+
+            console.error(
+                "Respuesta completa sin contenido:",
+                data
+            );
+
+            throw new Error(
+                "DomAI no devolvió una respuesta de texto."
+            );
+        }
+
+        add(
+            respuesta,
+            "bot"
+        );
 
         conversation.push({
             role: "assistant",
@@ -1215,18 +977,24 @@ function send() {
         });
 
     })
+
     .catch(error => {
 
-        console.error("DomAI error:", error);
+        console.error(
+            "DomAI error:",
+            error
+        );
 
         add(
-            "Error al conectar con DomAI: " + error.message,
+            "Error al conectar con DomAI: " +
+            error.message,
             "bot"
         );
 
     });
 
 }
+
 </script>
 
 </body>
