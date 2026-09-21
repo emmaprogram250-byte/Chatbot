@@ -2,17 +2,26 @@
 
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <meta name="description"
 content="DomAI — asistente educativo especializado en Ciencias Sociales, historia y conocimiento de la República Dominicana.">
 
 <title>DomAI — Inteligencia Dominicana 🇩🇴</title>
 
+
 <style>
 
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
 :root {
+
     --azul: #002D62;
     --azul-oscuro: #001A3A;
     --azul-claro: #063D7A;
@@ -24,15 +33,27 @@ content="DomAI — asistente educativo especializado en Ciencias Sociales, histo
     --texto-secundario: #D6E0EC;
 
     --borde: rgba(206, 17, 38, 0.75);
+
 }
+
+
+/* =========================================================
+   GENERAL
+   ========================================================= */
 
 * {
     box-sizing: border-box;
 }
 
+
 body {
+
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
     background:
         linear-gradient(
@@ -42,44 +63,97 @@ body {
         );
 
     color: var(--texto);
+
 }
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 header {
+
     padding: 18px 26px;
-    background: var(--azul-oscuro);
-    border-bottom: 3px solid var(--rojo);
+
+    background:
+        var(--azul-oscuro);
+
+    border-bottom:
+        3px solid var(--rojo);
+
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
     gap: 20px;
+
 }
+
 
 .logo {
+
     font-size: 30px;
+
     font-weight: 900;
+
     letter-spacing: -1px;
+
 }
+
 
 .tag {
+
     margin-top: 3px;
+
     font-size: 13px;
-    color: var(--texto-secundario);
+
+    color:
+        var(--texto-secundario);
+
 }
+
 
 .header-quote {
+
     font-size: 13px;
-    color: var(--texto-secundario);
+
+    color:
+        var(--texto-secundario);
+
     text-align: right;
+
     max-width: 330px;
+
 }
 
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
 main {
-    width: min(1200px, 92%);
-    margin: auto;
-    padding: 28px 0 50px;
-    display: flex;
-    flex-direction: column;
+
+    width:
+        min(1200px, 92%);
+
+    margin:
+        auto;
+
+    padding:
+        28px 0 50px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
 }
+
 
 .hero {
     order: 1;
@@ -101,355 +175,979 @@ main {
     order: 5;
 }
 
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
 .hero {
+
     padding: 42px;
+
     border-radius: 22px;
-    background: var(--azul-oscuro);
-    border: 1px solid var(--rojo);
+
+    background:
+        var(--azul-oscuro);
+
+    border:
+        1px solid var(--rojo);
+
     position: relative;
+
     overflow: hidden;
+
 }
+
 
 .hero::after {
+
     content: "";
+
     position: absolute;
+
     width: 180px;
+
     height: 180px;
+
     border-radius: 50%;
-    border: 28px solid var(--rojo);
+
+    border:
+        28px solid var(--rojo);
+
     right: -80px;
+
     top: -90px;
+
     opacity: 0.25;
+
 }
+
 
 .kicker {
-    color: var(--rojo);
+
+    color:
+        var(--rojo);
+
     font-size: 12px;
+
     font-weight: 800;
+
     letter-spacing: 2px;
-    text-transform: uppercase;
+
+    text-transform:
+        uppercase;
+
 }
+
 
 .hero h1 {
-    font-size: clamp(40px, 7vw, 64px);
-    margin: 12px 0;
-    line-height: 1;
-    letter-spacing: -3px;
+
+    font-size:
+        clamp(40px, 7vw, 64px);
+
+    margin:
+        12px 0;
+
+    line-height:
+        1;
+
+    letter-spacing:
+        -3px;
+
 }
+
 
 .hero p {
+
     max-width: 850px;
-    color: var(--texto-secundario);
+
+    color:
+        var(--texto-secundario);
+
     font-size: 17px;
+
     line-height: 1.65;
+
 }
+
+
+/* =========================================================
+   ÁREAS
+   ========================================================= */
 
 .section-title {
-    margin: 32px 0 15px;
+
+    margin:
+        32px 0 15px;
+
     font-size: 22px;
+
     font-weight: 800;
+
 }
+
 
 .grid {
+
     display: grid;
+
     grid-template-columns:
-        repeat(auto-fit, minmax(210px, 1fr));
+        repeat(
+            auto-fit,
+            minmax(210px, 1fr)
+        );
+
     gap: 14px;
+
 }
 
+
 .card {
+
     min-height: 155px;
+
     padding: 21px;
+
     border-radius: 17px;
-    background: var(--azul-oscuro);
-    border: 1px solid var(--borde);
+
+    background:
+        var(--azul-oscuro);
+
+    border:
+        1px solid var(--borde);
+
     cursor: pointer;
+
     transition:
         transform 0.2s ease,
         background 0.2s ease,
         border-color 0.2s ease;
+
 }
+
 
 .card:hover {
-    transform: translateY(-4px);
-    background: var(--azul-claro);
-    border-color: var(--rojo);
+
+    transform:
+        translateY(-4px);
+
+    background:
+        var(--azul-claro);
+
+    border-color:
+        var(--rojo);
+
 }
+
 
 .card-number {
+
     font-size: 12px;
+
     font-weight: 900;
-    color: var(--rojo);
+
+    color:
+        var(--rojo);
+
     letter-spacing: 1px;
+
 }
+
 
 .card h3 {
-    margin: 12px 0 7px;
+
+    margin:
+        12px 0 7px;
+
     font-size: 17px;
+
 }
+
 
 .card p {
+
     margin: 0;
-    color: var(--texto-secundario);
+
+    color:
+        var(--texto-secundario);
+
     font-size: 13px;
+
     line-height: 1.5;
+
 }
+
+
+/* =========================================================
+   CHAT
+   ========================================================= */
 
 .chat {
+
     margin-top: 30px;
-    background: var(--azul-oscuro);
-    border: 1px solid var(--rojo);
+
+    background:
+        var(--azul-oscuro);
+
+    border:
+        1px solid var(--rojo);
+
     border-radius: 21px;
+
     overflow: hidden;
+
 }
+
 
 .chat-head {
-    padding: 17px 20px;
-    border-bottom: 1px solid var(--rojo);
+
+    padding:
+        17px 20px;
+
+    border-bottom:
+        1px solid var(--rojo);
+
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
     gap: 10px;
+
 }
+
 
 .chat-title {
+
     font-weight: 900;
+
     font-size: 17px;
+
 }
+
 
 .chat-status {
+
     font-size: 11px;
-    color: var(--texto-secundario);
+
+    color:
+        var(--texto-secundario);
+
 }
+
+
+/* =========================================================
+   MENSAJES
+   ========================================================= */
 
 .messages {
+
     height: 650px;
+
     overflow-y: auto;
+
     padding: 25px;
+
+    scroll-behavior: smooth;
+
 }
+
 
 .msg {
+
     max-width: 86%;
-    padding: 14px 16px;
-    margin: 10px 0;
-    border-radius: 15px;
-    line-height: 1.55;
+
+    padding:
+        15px 17px;
+
+    margin:
+        12px 0;
+
+    border-radius: 16px;
+
+    line-height: 1.6;
+
     font-size: 14px;
+
 }
+
 
 .bot {
-    background: var(--azul-claro);
-    border-left: 3px solid var(--rojo);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--azul-claro),
+            #074887
+        );
+
+    border-left:
+        3px solid var(--rojo);
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.12);
+
 }
 
+
 .user {
-    background: var(--rojo);
-    margin-left: auto;
-    white-space: pre-wrap;
+
+    background:
+        var(--rojo);
+
+    margin-left:
+        auto;
+
+    white-space:
+        pre-wrap;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.12);
+
 }
+
+
+/* =========================================================
+   CONTENIDO DE LA IA
+   ========================================================= */
+
+.ai-content {
+
+    width: 100%;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   PÁRRAFOS
+   ========================================================= */
+
+.ai-paragraph {
+
+    margin:
+        0 0 14px;
+
+    color:
+        var(--texto);
+
+    font-size:
+        14px;
+
+}
+
+
+.ai-paragraph:last-child {
+
+    margin-bottom:
+        0;
+
+}
+
+
+/* =========================================================
+   NEGRITA
+   ========================================================= */
+
+.ai-content strong {
+
+    font-weight:
+        800;
+
+    color:
+        #FFFFFF;
+
+}
+
+
+/* =========================================================
+   CURSIVA
+   ========================================================= */
+
+.ai-content em {
+
+    color:
+        var(--texto-secundario);
+
+}
+
+
+/* =========================================================
+   ENCABEZADOS
+   ========================================================= */
+
+.ai-heading {
+
+    font-weight:
+        900;
+
+    color:
+        var(--texto);
+
+}
+
+
+.ai-heading-main {
+
+    margin:
+        21px 0 12px;
+
+    font-size:
+        20px;
+
+    line-height:
+        1.3;
+
+}
+
+
+.ai-heading-sub {
+
+    margin:
+        18px 0 9px;
+
+    font-size:
+        16px;
+
+    line-height:
+        1.35;
+
+}
+
+
+.ai-heading:first-child {
+
+    margin-top:
+        0;
+
+}
+
+
+/* =========================================================
+   LISTAS
+   ========================================================= */
+
+.ai-list {
+
+    margin:
+        8px 0 17px;
+
+    padding-left:
+        25px;
+
+    color:
+        var(--texto-secundario);
+
+}
+
+
+.ai-list li {
+
+    margin:
+        7px 0;
+
+    padding-left:
+        4px;
+
+}
+
+
+.ai-list li::marker {
+
+    color:
+        var(--rojo);
+
+    font-size:
+        0.9em;
+
+}
+
+
+/* =========================================================
+   LISTAS NUMERADAS
+   ========================================================= */
+
+.ai-numbered-list {
+
+    margin:
+        9px 0 17px;
+
+    padding-left:
+        25px;
+
+    color:
+        var(--texto-secundario);
+
+}
+
+
+.ai-numbered-list li {
+
+    margin:
+        7px 0;
+
+    padding-left:
+        5px;
+
+}
+
+
+.ai-numbered-list li::marker {
+
+    color:
+        var(--rojo);
+
+    font-weight:
+        800;
+
+}
+
+
+/* =========================================================
+   SEPARADORES
+   ========================================================= */
+
+.ai-separator {
+
+    height:
+        1px;
+
+    margin:
+        20px 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(
+                214,
+                224,
+                236,
+                0.25
+            ),
+            transparent
+        );
+
+}
+
 
 /* =========================================================
    TABLAS CONVERTIDAS EN CUADROS
    ========================================================= */
 
-.ai-content {
-    width: 100%;
-}
-
-.ai-text {
-    white-space: pre-wrap;
-    margin: 0 0 10px;
-}
-
 .ai-table {
-    display: grid;
+
+    display:
+        grid;
+
     grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
+        repeat(
+            auto-fit,
+            minmax(220px, 1fr)
+        );
 
-    gap: 12px;
+    gap:
+        12px;
 
-    margin: 16px 0 18px;
+    margin:
+        16px 0 18px;
+
 }
+
 
 .ai-table-card {
-    background: rgba(0, 26, 58, 0.75);
-    border: 1px solid rgba(214, 224, 236, 0.18);
-    border-left: 3px solid var(--rojo);
 
-    border-radius: 13px;
+    background:
+        rgba(
+            0,
+            26,
+            58,
+            0.75
+        );
 
-    padding: 16px;
+    border:
+        1px solid
+        rgba(
+            214,
+            224,
+            236,
+            0.18
+        );
+
+    border-left:
+        3px solid
+        var(--rojo);
+
+    border-radius:
+        13px;
+
+    padding:
+        16px;
 
     transition:
         transform 0.2s ease,
         background 0.2s ease,
         border-color 0.2s ease;
+
 }
+
 
 .ai-table-card:hover {
-    transform: translateY(-2px);
-    background: var(--azul-oscuro);
-    border-color: var(--rojo);
+
+    transform:
+        translateY(-2px);
+
+    background:
+        var(--azul-oscuro);
+
+    border-color:
+        var(--rojo);
+
 }
+
 
 .ai-table-title {
-    font-size: 13px;
-    font-weight: 900;
 
-    color: var(--texto);
+    font-size:
+        13px;
 
-    margin-bottom: 8px;
+    font-weight:
+        900;
+
+    color:
+        var(--texto);
+
+    margin-bottom:
+        9px;
+
 }
+
 
 .ai-table-label {
-    display: block;
 
-    font-size: 10px;
-    font-weight: 800;
+    display:
+        block;
 
-    color: var(--rojo);
+    font-size:
+        10px;
 
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
+    font-weight:
+        800;
 
-    margin-bottom: 4px;
+    color:
+        var(--rojo);
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.8px;
+
+    margin-bottom:
+        4px;
+
 }
+
 
 .ai-table-value {
-    color: var(--texto-secundario);
 
-    font-size: 13px;
-    line-height: 1.55;
+    color:
+        var(--texto-secundario);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.55;
+
 }
 
-/* Tablas con muchas columnas */
 
 .ai-table-wide {
+
     grid-template-columns:
-        repeat(auto-fit, minmax(190px, 1fr));
+        repeat(
+            auto-fit,
+            minmax(190px, 1fr)
+        );
+
 }
+
 
 /* =========================================================
-   TEXTO DESTACADO DE LA IA
+   INPUT
    ========================================================= */
 
-.ai-bold {
-    font-weight: 800;
-    color: var(--texto);
-}
-
-.ai-heading {
-    font-weight: 900;
-    font-size: 16px;
-    margin: 12px 0 8px;
-    color: var(--texto);
-}
-
 .input {
-    display: flex;
-    gap: 9px;
-    padding: 13px;
-    border-top: 1px solid var(--rojo);
+
+    display:
+        flex;
+
+    gap:
+        9px;
+
+    padding:
+        13px;
+
+    border-top:
+        1px solid var(--rojo);
+
 }
+
 
 input {
-    flex: 1;
-    min-width: 0;
-    padding: 14px 15px;
-    border-radius: 12px;
-    border: 1px solid var(--rojo);
-    outline: none;
-    background: var(--azul);
-    color: var(--texto);
-    font-size: 15px;
+
+    flex:
+        1;
+
+    min-width:
+        0;
+
+    padding:
+        14px 15px;
+
+    border-radius:
+        12px;
+
+    border:
+        1px solid var(--rojo);
+
+    outline:
+        none;
+
+    background:
+        var(--azul);
+
+    color:
+        var(--texto);
+
+    font-size:
+        15px;
+
 }
+
 
 input::placeholder {
-    color: var(--texto-secundario);
+
+    color:
+        var(--texto-secundario);
+
 }
+
 
 input:focus {
+
     box-shadow:
         0 0 0 2px
-        rgba(206, 17, 38, 0.25);
+        rgba(
+            206,
+            17,
+            38,
+            0.25
+        );
+
 }
+
 
 button {
-    border: 0;
-    border-radius: 12px;
-    padding: 12px 19px;
-    background: var(--rojo);
-    color: var(--texto);
-    font-weight: 800;
-    cursor: pointer;
+
+    border:
+        0;
+
+    border-radius:
+        12px;
+
+    padding:
+        12px 19px;
+
+    background:
+        var(--rojo);
+
+    color:
+        var(--texto);
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+
 }
+
 
 button:hover {
-    background: var(--rojo-oscuro);
+
+    background:
+        var(--rojo-oscuro);
+
 }
+
+
+/* =========================================================
+   INFORMACIÓN
+   ========================================================= */
 
 .info {
-    margin-top: 25px;
-    padding: 24px;
-    border-radius: 17px;
-    background: var(--azul-oscuro);
-    border: 1px solid var(--rojo);
+
+    margin-top:
+        25px;
+
+    padding:
+        24px;
+
+    border-radius:
+        17px;
+
+    background:
+        var(--azul-oscuro);
+
+    border:
+        1px solid var(--rojo);
+
 }
+
 
 .info h2 {
-    margin-top: 0;
+
+    margin-top:
+        0;
+
 }
+
 
 .info p {
-    color: var(--texto-secundario);
-    line-height: 1.65;
+
+    color:
+        var(--texto-secundario);
+
+    line-height:
+        1.65;
+
 }
 
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
 footer {
-    text-align: center;
-    padding: 30px 15px;
-    color: var(--texto-secundario);
-    border-top: 3px solid var(--rojo);
+
+    text-align:
+        center;
+
+    padding:
+        30px 15px;
+
+    color:
+        var(--texto-secundario);
+
+    border-top:
+        3px solid var(--rojo);
+
 }
+
+
+/* =========================================================
+   MÓVIL
+   ========================================================= */
 
 @media (max-width: 700px) {
 
     header {
-        padding: 15px 17px;
+
+        padding:
+            15px 17px;
+
     }
+
 
     .header-quote {
-        display: none;
+
+        display:
+            none;
+
     }
+
 
     main {
-        width: 94%;
-        padding-top: 18px;
+
+        width:
+            94%;
+
+        padding-top:
+            18px;
+
     }
+
 
     .hero {
-        padding: 28px;
+
+        padding:
+            28px;
+
     }
+
 
     .hero h1 {
-        font-size: 43px;
+
+        font-size:
+            43px;
+
     }
+
 
     .messages {
-        height: 500px;
-        padding: 20px;
+
+        height:
+            500px;
+
+        padding:
+            20px;
+
     }
+
 
     .input button {
-        padding: 12px;
+
+        padding:
+            12px;
+
     }
+
 
     .msg {
-        max-width: 94%;
+
+        max-width:
+            94%;
+
     }
 
+
     .ai-table {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .ai-heading-main {
+
+        font-size:
+            18px;
+
+    }
+
+
+    .ai-heading-sub {
+
+        font-size:
+            15px;
+
     }
 
 }
@@ -458,7 +1156,9 @@ footer {
 
 </head>
 
+
 <body>
+
 
 <header>
 
@@ -474,14 +1174,19 @@ footer {
 
 </div>
 
+
 <div class="header-quote">
+
     “Conocer nuestra historia es comprender
     quiénes somos.”
+
 </div>
 
 </header>
 
+
 <main>
+
 
 <section class="hero">
 
@@ -489,11 +1194,14 @@ footer {
     Asistente educativo dominicano
 </div>
 
+
 <h1>
     DomAI
 </h1>
 
+
 <p>
+
     Un asistente diseñado para ayudar a los jóvenes
     dominicanos a estudiar, investigar y comprender
     las Ciencias Sociales desde los conceptos más
@@ -505,11 +1213,14 @@ footer {
     cultura, gastronomía, geografía, sociedad,
     música, cine, literatura, patrimonio y
     muchos otros aspectos de la República Dominicana.
+
 </p>
 
 </section>
 
+
 <section class="chat">
+
 
 <div class="chat-head">
 
@@ -517,45 +1228,82 @@ footer {
     🤖 DomAI · Asistente
 </div>
 
+
 <div class="chat-status">
     Versión conectada a IA
 </div>
 
 </div>
 
+
 <div id="messages" class="messages">
+
 
 <div class="msg bot">
 
-Bienvenido a DomAI. 🇩🇴
+<div class="ai-content">
 
-Soy un asistente educativo especializado
-en República Dominicana.
+<p class="ai-paragraph">
 
-Mi prioridad es ayudarte a comprender
-las Ciencias Sociales con profundidad.
+    Bienvenido a DomAI. 🇩🇴
 
-También podemos explorar:
+</p>
 
-• Historia
-• Cultura
-• Gastronomía
-• Música
-• Cine
-• Literatura
-• Geografía
-• Sociedad
-• Patrimonio
-• Economía
-• Ciudadanía
-• Política
-• Y muchos otros temas dominicanos.
 
-Escribe cualquier pregunta para comenzar.
+<p class="ai-paragraph">
+
+    Soy un asistente educativo especializado
+    en República Dominicana.
+
+</p>
+
+
+<p class="ai-paragraph">
+
+    Mi prioridad es ayudarte a comprender
+    las Ciencias Sociales con profundidad.
+
+</p>
+
+
+<p class="ai-paragraph">
+
+    También podemos explorar:
+
+</p>
+
+
+<ul class="ai-list">
+
+<li>Historia</li>
+<li>Cultura</li>
+<li>Gastronomía</li>
+<li>Música</li>
+<li>Cine</li>
+<li>Literatura</li>
+<li>Geografía</li>
+<li>Sociedad</li>
+<li>Patrimonio</li>
+<li>Economía</li>
+<li>Ciudadanía</li>
+<li>Política</li>
+<li>Y muchos otros temas dominicanos.</li>
+
+</ul>
+
+
+<p class="ai-paragraph">
+
+    Escribe cualquier pregunta para comenzar.
+
+</p>
 
 </div>
 
 </div>
+
+</div>
+
 
 <div class="input">
 
@@ -565,6 +1313,7 @@ placeholder="Pregunta a DomAI sobre República Dominicana..."
 onkeydown="if(event.key === 'Enter') send()"
 >
 
+
 <button onclick="send()">
     Enviar
 </button>
@@ -573,11 +1322,14 @@ onkeydown="if(event.key === 'Enter') send()"
 
 </section>
 
+
 <div class="section-title">
     Áreas de conocimiento
 </div>
 
+
 <section class="grid">
+
 
 <div
 class="card"
@@ -600,6 +1352,7 @@ onclick="quick('Quiero estudiar Ciencias Sociales desde cero. Enséñame como un
 
 </div>
 
+
 <div
 class="card"
 onclick="quick('Enséñame la historia de República Dominicana de forma cronológica y profunda.')"
@@ -620,6 +1373,7 @@ onclick="quick('Enséñame la historia de República Dominicana de forma cronol�
 </p>
 
 </div>
+
 
 <div
 class="card"
@@ -642,6 +1396,7 @@ onclick="quick('Quiero aprender profundamente sobre la cultura dominicana.')"
 
 </div>
 
+
 <div
 class="card"
 onclick="quick('Enséñame la gastronomía dominicana, sus platos, ingredientes, historia e influencias.')"
@@ -662,6 +1417,7 @@ onclick="quick('Enséñame la gastronomía dominicana, sus platos, ingredientes,
 </p>
 
 </div>
+
 
 <div
 class="card"
@@ -684,6 +1440,7 @@ onclick="quick('Explícame la historia y evolución de la música dominicana.')"
 
 </div>
 
+
 <div
 class="card"
 onclick="quick('Háblame del cine dominicano y de la evolución de sus películas e industria.')"
@@ -704,6 +1461,7 @@ onclick="quick('Háblame del cine dominicano y de la evolución de sus película
 </p>
 
 </div>
+
 
 <div
 class="card"
@@ -726,6 +1484,7 @@ onclick="quick('Enséñame la geografía de República Dominicana.')"
 
 </div>
 
+
 <div
 class="card"
 onclick="quick('Quiero aprender sobre literatura dominicana.')"
@@ -746,6 +1505,7 @@ onclick="quick('Quiero aprender sobre literatura dominicana.')"
 </p>
 
 </div>
+
 
 <div
 class="card"
@@ -768,6 +1528,7 @@ onclick="quick('Explícame cómo funciona la sociedad dominicana desde una persp
 
 </div>
 
+
 <div
 class="card"
 onclick="quick('Háblame del patrimonio histórico y cultural de República Dominicana.')"
@@ -788,6 +1549,7 @@ onclick="quick('Háblame del patrimonio histórico y cultural de República Domi
 
 </div>
 
+
 <div
 class="card"
 onclick="quick('Llévame al año 1844 y explícame qué ocurría en República Dominicana y su contexto.')"
@@ -807,6 +1569,7 @@ onclick="quick('Llévame al año 1844 y explícame qué ocurría en República D
 </p>
 
 </div>
+
 
 <div
 class="card"
@@ -829,7 +1592,9 @@ onclick="quick('Activa el modo profesor. Hazme una clase avanzada de Ciencias So
 
 </div>
 
+
 </section>
+
 
 <section class="info">
 
@@ -837,11 +1602,13 @@ onclick="quick('Activa el modo profesor. Hazme una clase avanzada de Ciencias So
     La misión de DomAI
 </h2>
 
+
 <p>
 DomAI está diseñado para convertirse en un
 asistente educativo de alto nivel para los
 jóvenes dominicanos.
 </p>
+
 
 <p>
 En Ciencias Sociales debe ser capaz de explicar
@@ -852,12 +1619,14 @@ y consecuencias y ayudar al estudiante a
 construir argumentos.
 </p>
 
+
 <p>
 También debe enseñar a utilizar y analizar
 fuentes históricas y sociales, distinguir entre
 hechos, interpretaciones y opiniones, y fomentar
 el pensamiento crítico.
 </p>
+
 
 <p>
 Fuera de las Ciencias Sociales, DomAI tendrá
@@ -868,6 +1637,7 @@ deportes, expresiones populares y otros aspectos
 de la vida dominicana.
 </p>
 
+
 <p>
 Cuando esté conectado a una fuente de información
 actualizada, deberá verificar la información
@@ -877,7 +1647,9 @@ no confirmada como hechos.
 
 </section>
 
+
 </main>
+
 
 <footer>
 
@@ -894,19 +1666,27 @@ comprender y valorar la República Dominicana.
 
 </footer>
 
+
 <script>
 
+
+/* =========================================================
+   ELEMENTOS
+   ========================================================= */
+
 const messages =
-document.getElementById("messages");
+    document.getElementById("messages");
+
 
 const input =
-document.getElementById("text");
+    document.getElementById("text");
+
 
 let conversation = [];
 
 
 /* =========================================================
-   ESCAPAR TEXTO
+   ESCAPAR HTML
    ========================================================= */
 
 function escapeHTML(text) {
@@ -918,11 +1698,12 @@ function escapeHTML(text) {
         text;
 
     return div.innerHTML;
+
 }
 
 
 /* =========================================================
-   FORMATEAR TEXTO SIMPLE
+   FORMATEAR TEXTO INTERNO
    ========================================================= */
 
 function formatInline(text) {
@@ -930,23 +1711,54 @@ function formatInline(text) {
     let safe =
         escapeHTML(text);
 
+
+    /*
+     * Negrita
+     */
+
     safe =
         safe.replace(
             /\*\*(.*?)\*\*/g,
-            '<span class="ai-bold">$1</span>'
+            "<strong>$1</strong>"
         );
 
+
+    /*
+     * Cursiva
+     */
+
+    safe =
+        safe.replace(
+            /(?<!\*)\*([^*\n]+)\*(?!\*)/g,
+            "<em>$1</em>"
+        );
+
+
+    /*
+     * Código inline
+     */
+
+    safe =
+        safe.replace(
+            /`([^`]+)`/g,
+            "<code>$1</code>"
+        );
+
+
     return safe;
+
 }
 
 
 /* =========================================================
-   DETECTAR TABLAS MARKDOWN
+   TABLAS
    ========================================================= */
 
 function isTableSeparator(line) {
 
-    return /^\s*\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)+\|?\s*$/.test(line);
+    return /^\s*\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)+\|?\s*$/
+        .test(line);
+
 }
 
 
@@ -955,22 +1767,35 @@ function parseTableRow(line) {
     let clean =
         line.trim();
 
+
     if (clean.startsWith("|")) {
-        clean = clean.substring(1);
+
+        clean =
+            clean.substring(1);
+
     }
 
+
     if (clean.endsWith("|")) {
-        clean = clean.substring(0, clean.length - 1);
+
+        clean =
+            clean.substring(
+                0,
+                clean.length - 1
+            );
+
     }
+
 
     return clean
         .split("|")
         .map(cell => cell.trim());
+
 }
 
 
 /* =========================================================
-   CREAR CUADRO VISUAL
+   CREAR TABLA VISUAL
    ========================================================= */
 
 function createVisualTable(headers, rows) {
@@ -978,11 +1803,17 @@ function createVisualTable(headers, rows) {
     const table =
         document.createElement("div");
 
+
     table.className =
         "ai-table";
 
+
     if (headers.length > 2) {
-        table.classList.add("ai-table-wide");
+
+        table.classList.add(
+            "ai-table-wide"
+        );
+
     }
 
 
@@ -992,34 +1823,31 @@ function createVisualTable(headers, rows) {
             return;
         }
 
+
         const card =
             document.createElement("div");
+
 
         card.className =
             "ai-table-card";
 
 
-        /*
-         * Primera columna:
-         * título principal del cuadro
-         */
-
         const title =
             document.createElement("div");
+
 
         title.className =
             "ai-table-title";
 
+
         title.innerHTML =
-            formatInline(row[0] || "");
+            formatInline(
+                row[0] || ""
+            );
+
 
         card.appendChild(title);
 
-
-        /*
-         * Columnas restantes:
-         * información del cuadro
-         */
 
         for (
             let i = 1;
@@ -1030,11 +1858,15 @@ function createVisualTable(headers, rows) {
             const label =
                 document.createElement("span");
 
+
             label.className =
                 "ai-table-label";
 
+
             label.textContent =
-                headers[i] || "Información";
+                headers[i] ||
+                "Información";
+
 
             card.appendChild(label);
 
@@ -1042,13 +1874,19 @@ function createVisualTable(headers, rows) {
             const value =
                 document.createElement("div");
 
+
             value.className =
                 "ai-table-value";
 
+
             value.innerHTML =
-                formatInline(row[i] || "");
+                formatInline(
+                    row[i] || ""
+                );
+
 
             card.appendChild(value);
+
         }
 
 
@@ -1058,6 +1896,352 @@ function createVisualTable(headers, rows) {
 
 
     return table;
+
+}
+
+
+/* =========================================================
+   RENDERIZAR TEXTO NORMAL
+   ========================================================= */
+
+function renderTextBlock(text) {
+
+    const fragment =
+        document.createDocumentFragment();
+
+
+    const lines =
+        text.split("\n");
+
+
+    let list = null;
+
+
+    let orderedList = null;
+
+
+    function closeLists() {
+
+        if (list) {
+
+            fragment.appendChild(list);
+
+            list = null;
+
+        }
+
+
+        if (orderedList) {
+
+            fragment.appendChild(
+                orderedList
+            );
+
+            orderedList = null;
+
+        }
+
+    }
+
+
+    function addParagraph(content) {
+
+        const paragraph =
+            document.createElement("p");
+
+
+        paragraph.className =
+            "ai-paragraph";
+
+
+        paragraph.innerHTML =
+            formatInline(content);
+
+
+        fragment.appendChild(
+            paragraph
+        );
+
+    }
+
+
+    lines.forEach(rawLine => {
+
+        let line =
+            rawLine.trim();
+
+
+        /*
+         * Línea vacía
+         */
+
+        if (!line) {
+
+            closeLists();
+
+            return;
+
+        }
+
+
+        /*
+         * Separador Markdown
+         */
+
+        if (
+            /^-{3,}$/.test(line) ||
+            /^\*{3,}$/.test(line) ||
+            /^_{3,}$/.test(line)
+        ) {
+
+            closeLists();
+
+
+            const separator =
+                document.createElement("div");
+
+
+            separator.className =
+                "ai-separator";
+
+
+            fragment.appendChild(
+                separator
+            );
+
+
+            return;
+
+        }
+
+
+        /*
+         * Encabezado #
+         */
+
+        if (/^#\s+/.test(line)) {
+
+            closeLists();
+
+
+            const heading =
+                document.createElement("h3");
+
+
+            heading.className =
+                "ai-heading ai-heading-main";
+
+
+            heading.innerHTML =
+                formatInline(
+                    line.replace(
+                        /^#\s+/,
+                        ""
+                    )
+                );
+
+
+            fragment.appendChild(
+                heading
+            );
+
+
+            return;
+
+        }
+
+
+        /*
+         * Encabezado ##
+         */
+
+        if (/^##\s+/.test(line)) {
+
+            closeLists();
+
+
+            const heading =
+                document.createElement("h3");
+
+
+            heading.className =
+                "ai-heading ai-heading-main";
+
+
+            heading.innerHTML =
+                formatInline(
+                    line.replace(
+                        /^##\s+/,
+                        ""
+                    )
+                );
+
+
+            fragment.appendChild(
+                heading
+            );
+
+
+            return;
+
+        }
+
+
+        /*
+         * Encabezado ###
+         */
+
+        if (/^###\s+/.test(line)) {
+
+            closeLists();
+
+
+            const heading =
+                document.createElement("h4");
+
+
+            heading.className =
+                "ai-heading ai-heading-sub";
+
+
+            heading.innerHTML =
+                formatInline(
+                    line.replace(
+                        /^###\s+/,
+                        ""
+                    )
+                );
+
+
+            fragment.appendChild(
+                heading
+            );
+
+
+            return;
+
+        }
+
+
+        /*
+         * Lista con guion
+         */
+
+        if (/^[-*]\s+/.test(line)) {
+
+            if (orderedList) {
+
+                fragment.appendChild(
+                    orderedList
+                );
+
+                orderedList = null;
+
+            }
+
+
+            if (!list) {
+
+                list =
+                    document.createElement("ul");
+
+
+                list.className =
+                    "ai-list";
+
+            }
+
+
+            const item =
+                document.createElement("li");
+
+
+            item.innerHTML =
+                formatInline(
+                    line.replace(
+                        /^[-*]\s+/,
+                        ""
+                    )
+                );
+
+
+            list.appendChild(item);
+
+
+            return;
+
+        }
+
+
+        /*
+         * Lista numerada
+         */
+
+        if (/^\d+\.\s+/.test(line)) {
+
+            if (list) {
+
+                fragment.appendChild(
+                    list
+                );
+
+                list = null;
+
+            }
+
+
+            if (!orderedList) {
+
+                orderedList =
+                    document.createElement("ol");
+
+
+                orderedList.className =
+                    "ai-numbered-list";
+
+            }
+
+
+            const item =
+                document.createElement("li");
+
+
+            item.innerHTML =
+                formatInline(
+                    line.replace(
+                        /^\d+\.\s+/,
+                        ""
+                    )
+                );
+
+
+            orderedList.appendChild(
+                item
+            );
+
+
+            return;
+
+        }
+
+
+        /*
+         * Texto normal
+         */
+
+        closeLists();
+
+
+        addParagraph(line);
+
+    });
+
+
+    closeLists();
+
+
+    return fragment;
+
 }
 
 
@@ -1070,12 +2254,14 @@ function renderAIResponse(text) {
     const container =
         document.createElement("div");
 
+
     container.className =
         "ai-content";
 
 
     const lines =
         text.split("\n");
+
 
     let textBuffer = [];
 
@@ -1086,45 +2272,42 @@ function renderAIResponse(text) {
             return;
         }
 
+
         const content =
-            textBuffer.join("\n").trim();
+            textBuffer
+                .join("\n")
+                .trim();
+
 
         if (content) {
 
-            const paragraph =
-                document.createElement("div");
-
-            paragraph.className =
-                "ai-text";
-
-            paragraph.innerHTML =
-                formatInline(content);
-
             container.appendChild(
-                paragraph
+                renderTextBlock(content)
             );
+
         }
 
+
         textBuffer = [];
+
     }
 
 
     let i = 0;
+
 
     while (i < lines.length) {
 
         const current =
             lines[i];
 
+
         const next =
             lines[i + 1];
 
 
         /*
-         * Detectamos:
-         *
-         * | Header | Header |
-         * |--------|--------|
+         * Detectar tabla Markdown
          */
 
         if (
@@ -1137,9 +2320,13 @@ function renderAIResponse(text) {
 
 
             const headers =
-                parseTableRow(current);
+                parseTableRow(
+                    current
+                );
+
 
             const rows = [];
+
 
             i += 2;
 
@@ -1151,13 +2338,20 @@ function renderAIResponse(text) {
             ) {
 
                 const row =
-                    parseTableRow(lines[i]);
+                    parseTableRow(
+                        lines[i]
+                    );
+
 
                 if (row.length > 0) {
+
                     rows.push(row);
+
                 }
 
+
                 i++;
+
             }
 
 
@@ -1169,19 +2363,24 @@ function renderAIResponse(text) {
                         rows
                     );
 
+
                 container.appendChild(
                     visualTable
                 );
 
             }
 
+
             continue;
+
         }
 
 
         textBuffer.push(current);
 
+
         i++;
+
     }
 
 
@@ -1189,6 +2388,7 @@ function renderAIResponse(text) {
 
 
     return container;
+
 }
 
 
@@ -1201,15 +2401,10 @@ function add(text, who) {
     const d =
         document.createElement("div");
 
+
     d.className =
         "msg " + who;
 
-
-    /*
-     * Las respuestas de DomAI
-     * se renderizan con el nuevo
-     * sistema visual.
-     */
 
     if (who === "bot") {
 
@@ -1221,13 +2416,16 @@ function add(text, who) {
 
         d.textContent =
             text;
+
     }
 
 
     messages.appendChild(d);
 
+
     messages.scrollTop =
         messages.scrollHeight;
+
 }
 
 
@@ -1240,12 +2438,14 @@ function quick(text) {
     input.value =
         text;
 
+
     send();
+
 }
 
 
 /* =========================================================
-   EXTRAER RESPUESTA DEL MODELO
+   EXTRAER RESPUESTA
    ========================================================= */
 
 function extractResponse(data) {
@@ -1253,11 +2453,19 @@ function extractResponse(data) {
     const content =
         data?.choices?.[0]?.message?.content;
 
-    if (typeof content === "string") {
+
+    if (
+        typeof content === "string"
+    ) {
+
         return content.trim();
+
     }
 
-    if (Array.isArray(content)) {
+
+    if (
+        Array.isArray(content)
+    ) {
 
         const textParts =
             content
@@ -1266,22 +2474,31 @@ function extractResponse(data) {
                     if (
                         typeof part === "string"
                     ) {
+
                         return part;
+
                     }
+
 
                     if (
                         part &&
                         typeof part.text === "string"
                     ) {
+
                         return part.text;
+
                     }
+
 
                     if (
                         part &&
                         typeof part.content === "string"
                     ) {
+
                         return part.content;
+
                     }
+
 
                     return "";
 
@@ -1289,15 +2506,21 @@ function extractResponse(data) {
                 .filter(Boolean);
 
 
-        if (textParts.length > 0) {
+        if (
+            textParts.length > 0
+        ) {
 
             return textParts
                 .join("\n")
                 .trim();
+
         }
+
     }
 
+
     return "";
+
 }
 
 
@@ -1310,6 +2533,7 @@ function send() {
     const q =
         input.value.trim();
 
+
     if (!q) {
         return;
     }
@@ -1321,30 +2545,54 @@ function send() {
     );
 
 
-    input.value = "";
+    input.value =
+        "";
 
 
     conversation.push({
-        role: "user",
-        content: q
+
+        role:
+            "user",
+
+        content:
+            q
+
     });
 
 
     fetch(
+
         "https://rapid-poetry-6a90domai-backend.emmaprogram250.workers.dev/",
+
         {
-            method: "POST",
+
+            method:
+                "POST",
+
 
             headers: {
-                "Content-Type": "application/json"
+
+                "Content-Type":
+                    "application/json"
+
             },
 
-            body: JSON.stringify({
-                message: q,
-                conversation: conversation
-            })
+
+            body:
+                JSON.stringify({
+
+                    message:
+                        q,
+
+                    conversation:
+                        conversation
+
+                })
+
         }
+
     )
+
 
     .then(async response => {
 
@@ -1367,10 +2615,15 @@ function send() {
         if (!response.ok) {
 
             throw new Error(
+
                 data.details?.error?.message ||
+
                 data.error ||
+
                 "Error del servidor"
+
             );
+
         }
 
 
@@ -1388,14 +2641,20 @@ function send() {
         if (!respuesta) {
 
             console.error(
+
                 "Respuesta completa sin contenido:",
+
                 data
+
             );
 
 
             throw new Error(
+
                 "DomAI no devolvió una respuesta de texto."
+
             );
+
         }
 
 
@@ -1406,8 +2665,13 @@ function send() {
 
 
         conversation.push({
-            role: "assistant",
-            content: respuesta
+
+            role:
+                "assistant",
+
+            content:
+                respuesta
+
         });
 
     })
@@ -1422,9 +2686,12 @@ function send() {
 
 
         add(
+
             "Error al conectar con DomAI: " +
             error.message,
+
             "bot"
+
         );
 
     });
@@ -1433,5 +2700,7 @@ function send() {
 
 </script>
 
+
 </body>
+
 </html>
